@@ -2,9 +2,12 @@
 
 namespace Hotmart\Api\Affiliation;
 
+use Hotmart\Api\HotmartSerializable;
+
 class AffiliationListRequestVO implements HotmartSerializable
 {
-    
+    // array of integer
+    private $productIds;
    /**
      * @param \stdClass $data
      *

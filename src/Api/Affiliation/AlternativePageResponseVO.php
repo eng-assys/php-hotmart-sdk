@@ -2,9 +2,24 @@
 
 namespace Hotmart\Api\Affiliation;
 
+use Hotmart\Api\HotmartSerializable;
 class AlternativePageResponseVO implements HotmartSerializable
 {
-    
+    // string
+    private $url;
+
+    // string
+    private $oldHotLink;
+
+    // string
+    private $description;
+
+    // ProductDetailedResponseVO
+    private $product;
+
+    // boolean
+    private $isSpecialCampaign;
+
    /**
      * @param \stdClass $data
      *

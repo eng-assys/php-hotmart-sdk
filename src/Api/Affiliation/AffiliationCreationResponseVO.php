@@ -2,6 +2,7 @@
 
 namespace Hotmart\Api\Affiliation;
 
+use Hotmart\Api\HotmartSerializable;
 class AffiliationCreationResponseVO implements HotmartSerializable
 {
     // integer
