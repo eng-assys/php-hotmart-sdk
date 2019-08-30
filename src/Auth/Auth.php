@@ -13,6 +13,8 @@ class Auth implements \JsonSerializable
 
     private $client_secret;
 
+    private $client_basic;
+
     /**
      * @param $json
      *
@@ -41,11 +43,13 @@ class Auth implements \JsonSerializable
      *
      * @param $client_id
      * @param $client_secret
+     * @param $client_basic
      */
-    public function __construct($client_id, $client_secret)
+    public function __construct($client_id, $client_secret, $client_basic)
     {
         $this->client_id  = $client_id;
         $this->client_secret  = $client_secret;
+        $this->client_basic  = $client_basic;
     }
 
     /**
@@ -55,6 +59,7 @@ class Auth implements \JsonSerializable
     {
         $this->client_id = isset($data->client_id) ? $data->client_id : null;
         $this->client_secret = isset($data->client_secret) ? $data->client_secret : null;
+        $this->client_basic = isset($data->client_basic) ? $data->client_basic : null;
     }
 
     /**
@@ -93,6 +98,26 @@ class Auth implements \JsonSerializable
     public function setClientSecret($client_secret)
     {
         $this->client_secret = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientBasic()
+    {
+        return $this->client_basic;
+    }
+
+    /**
+     * @param $client_basic
+     *
+     * @return $this
+     */
+    public function setClientBasic($client_basic)
+    {
+        $this->client_basic = $client_basic;
 
         return $this;
     }
