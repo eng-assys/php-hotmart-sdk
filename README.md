@@ -1,6 +1,6 @@
 # php-hotmart-sdk
 
-A PHP SDK to Use Hotmart API
+A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 # Supported Requests
 
