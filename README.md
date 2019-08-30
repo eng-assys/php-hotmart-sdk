@@ -17,7 +17,8 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | {AUTH URL}/affiliation/rest/v2/ |
+| URL   | {AUTH URL}/security/oauth/token?grant_type=client_credentials&client_id=[CLIENT_ID]&client_secret=[CLIENT_SECRET] |
+| HEADER | "Authorization" -> "Basic [BASIC]" |
 | METHOD | POST |
 | DESCRIPTION | Request Acess Token. |
 | PATH    |  |
@@ -30,6 +31,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/affiliation/rest/v2/ |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get hotlinks of products of the users. |
 | PATH    |  |
@@ -41,6 +43,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/affiliation/rest/v2/list |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | POST |
 | DESCRIPTION | Create affiliations for a list of given products. If the product has open affiliation, it's created. If the product has an affiliation program which needs approval, a request will be created. If the product doesn't allow affiliation, an error will be occur. |
 | PATH    |  |
@@ -53,6 +56,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/product/rest/v2/{productId}/offer/{offerId} |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | DELETE |
 | DESCRIPTION | Delete a product offer by product id and offer id. |
 | PATH    |  |
@@ -64,6 +68,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/product/rest/v2/{productId}/offers/ |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get offers of product. |
 | PATH    |  |
@@ -75,6 +80,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/product/rest/v2/{productId} |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get product information. |
 | PATH    |  |
@@ -86,6 +92,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/product/rest/v2/{productId}/offer |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | POST |
 | DESCRIPTION | Add an offer to an existing product. |
 | PATH    |  |
@@ -97,6 +104,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/product/rest/v2/{productId} |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | PUT |
 | DESCRIPTION | Update basic info of a Product. |
 | PATH    |  |
@@ -108,6 +116,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/product/rest/v2/{productId}/offer/{offerId} |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | PUT |
 | DESCRIPTION | Update basic info of a Product Offer. |
 | PATH    |  |
@@ -120,6 +129,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/reports/rest/v2/history |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get the history of sales in which the user got a commission, as producer, affiliate or co-producer |
 | PATH    |  |
@@ -131,6 +141,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/reports/rest/v2/purchaseDetails |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get the details of a purchase. |
 | PATH    |  |
@@ -143,6 +154,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/subscriber/rest/v2 |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get the subscribers. |
 | PATH    |  |
@@ -154,6 +166,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/subscription/rest/v2/{subscriptionCode}/cancel |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | PUT |
 | DESCRIPTION | Cancel subscription of the given code. |
 | PATH    |  |
@@ -166,6 +179,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/user/rest/v2 |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get User by given filters. |
 | PATH    |  |
@@ -177,6 +191,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/user/rest/v2/me |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | GET |
 | DESCRIPTION | Get Logged User info. |
 | PATH    |  |
@@ -188,6 +203,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/user/rest/v2/signup |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | POST |
 | DESCRIPTION | Create a new user. |
 | PATH    |  |
@@ -200,6 +216,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/switchPlan/rest/v2/plans |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | POST |
 | DESCRIPTION | This service aims to provide the status of plans in relation to plan change. |
 | PATH    |  |
@@ -211,6 +228,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | Field | Value |
 | ----- | ------- |
 | URL   | {BASE_URL}/switchPlan/rest/v2/sendInvite |
+| HEADER | "Authorization" -> "Bearer [ACCESS_TOKEN]" |
 | METHOD | POST |
 | DESCRIPTION | This service is responsible for sending plan change invitations to the selected subscribers. |
 | PATH    |  |
