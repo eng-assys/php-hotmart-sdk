@@ -1,18 +1,18 @@
 <?php
 
-namespace BraspagSplit;
+namespace Hotmart;
 
 /**
- * Class Merchant
+ * Class HotConnect
  *
- * @package BraspagSplit
+ * @package Hotmart
  */
-class Merchant
+class HotConnect
 {
     private $token;
 
     /**
-     * Merchant constructor.
+     * HotConnect constructor.
      *
      * @param $token
      */
@@ -22,9 +22,9 @@ class Merchant
     }
 
     /**
-     * Gets the merchant token
+     * Gets the hotconnect token
      *
-     * @return string the merchant token on Braspag
+     * @return string the hotconnect token on Hotmart
      */
     public function getToken()
     {
