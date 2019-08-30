@@ -1,0 +1,14 @@
+{
+    "name": "gerenciagram/php-hotmart-sdk",
+    "description": "SDK em PHP para Integração com API do Hotmart",
+    "autoload": {
+        "psr-4": {
+            "Hotmart\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "license": "MIT"
+}
