@@ -4,14 +4,32 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 # Supported Requests
 
-* BASE URL: https://api-hot-connect.hotmart.com
+## BASE URL:
+* Production: https://api-hot-connect.hotmart.com
+* Sandbox: N/A
+
+## AUTH URL:
+* Production: https://api-sec-vlc.hotmart.com
+* Sandbox: N/A
+
+## Authentication
+* Get Access Token
+
+| Field | Value |
+| ----- | ------- |
+| URL   | {AUTH URL}/affiliation/rest/v2/ |
+| METHOD | POST |
+| DESCRIPTION | Request Acess Token. |
+| PATH    |  |
+| BODY    |  |
+| RESPONSE    |  |
 
 ## Affiliation
 * Get Hotlinks
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /affiliation/rest/v2/ |
+| URL   | {BASE_URL}/affiliation/rest/v2/ |
 | METHOD | GET |
 | DESCRIPTION | Get hotlinks of products of the users. |
 | PATH    |  |
@@ -22,7 +40,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /affiliation/rest/v2/list |
+| URL   | {BASE_URL}/affiliation/rest/v2/list |
 | METHOD | POST |
 | DESCRIPTION | Create affiliations for a list of given products. If the product has open affiliation, it's created. If the product has an affiliation program which needs approval, a request will be created. If the product doesn't allow affiliation, an error will be occur. |
 | PATH    |  |
@@ -34,7 +52,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /product/rest/v2/{productId}/offer/{offerId} |
+| URL   | {BASE_URL}/product/rest/v2/{productId}/offer/{offerId} |
 | METHOD | DELETE |
 | DESCRIPTION | Delete a product offer by product id and offer id. |
 | PATH    |  |
@@ -45,7 +63,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /product/rest/v2/{productId}/offers/ |
+| URL   | {BASE_URL}/product/rest/v2/{productId}/offers/ |
 | METHOD | GET |
 | DESCRIPTION | Get offers of product. |
 | PATH    |  |
@@ -56,7 +74,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /product/rest/v2/{productId} |
+| URL   | {BASE_URL}/product/rest/v2/{productId} |
 | METHOD | GET |
 | DESCRIPTION | Get product information. |
 | PATH    |  |
@@ -67,7 +85,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /product/rest/v2/{productId}/offer |
+| URL   | {BASE_URL}/product/rest/v2/{productId}/offer |
 | METHOD | POST |
 | DESCRIPTION | Add an offer to an existing product. |
 | PATH    |  |
@@ -78,7 +96,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /product/rest/v2/{productId} |
+| URL   | {BASE_URL}/product/rest/v2/{productId} |
 | METHOD | PUT |
 | DESCRIPTION | Update basic info of a Product. |
 | PATH    |  |
@@ -89,7 +107,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /product/rest/v2/{productId}/offer/{offerId} |
+| URL   | {BASE_URL}/product/rest/v2/{productId}/offer/{offerId} |
 | METHOD | PUT |
 | DESCRIPTION | Update basic info of a Product Offer. |
 | PATH    |  |
@@ -101,7 +119,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /reports/rest/v2/history |
+| URL   | {BASE_URL}/reports/rest/v2/history |
 | METHOD | GET |
 | DESCRIPTION | Get the history of sales in which the user got a commission, as producer, affiliate or co-producer |
 | PATH    |  |
@@ -112,7 +130,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /reports/rest/v2/purchaseDetails |
+| URL   | {BASE_URL}/reports/rest/v2/purchaseDetails |
 | METHOD | GET |
 | DESCRIPTION | Get the details of a purchase. |
 | PATH    |  |
@@ -124,7 +142,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /subscriber/rest/v2 |
+| URL   | {BASE_URL}/subscriber/rest/v2 |
 | METHOD | GET |
 | DESCRIPTION | Get the subscribers. |
 | PATH    |  |
@@ -135,7 +153,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /subscription/rest/v2/{subscriptionCode}/cancel |
+| URL   | {BASE_URL}/subscription/rest/v2/{subscriptionCode}/cancel |
 | METHOD | PUT |
 | DESCRIPTION | Cancel subscription of the given code. |
 | PATH    |  |
@@ -147,7 +165,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /user/rest/v2 |
+| URL   | {BASE_URL}/user/rest/v2 |
 | METHOD | GET |
 | DESCRIPTION | Get User by given filters. |
 | PATH    |  |
@@ -158,7 +176,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /user/rest/v2/me |
+| URL   | {BASE_URL}/user/rest/v2/me |
 | METHOD | GET |
 | DESCRIPTION | Get Logged User info. |
 | PATH    |  |
@@ -169,7 +187,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /user/rest/v2/signup |
+| URL   | {BASE_URL}/user/rest/v2/signup |
 | METHOD | POST |
 | DESCRIPTION | Create a new user. |
 | PATH    |  |
@@ -181,7 +199,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /switchPlan/rest/v2/plans |
+| URL   | {BASE_URL}/switchPlan/rest/v2/plans |
 | METHOD | POST |
 | DESCRIPTION | This service aims to provide the status of plans in relation to plan change. |
 | PATH    |  |
@@ -192,7 +210,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
 | Field | Value |
 | ----- | ------- |
-| URL   | /switchPlan/rest/v2/sendInvite |
+| URL   | {BASE_URL}/switchPlan/rest/v2/sendInvite |
 | METHOD | POST |
 | DESCRIPTION | This service is responsible for sending plan change invitations to the selected subscribers. |
 | PATH    |  |
