@@ -51,4 +51,84 @@ class ProductPaymentRequestVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of type
+     */ 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of warranty
+     */ 
+    public function getWarranty()
+    {
+        return $this->warranty;
+    }
+
+    /**
+     * Set the value of warranty
+     *
+     * @return  self
+     */ 
+    public function setWarranty($warranty)
+    {
+        $this->warranty = $warranty;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of details
+     */ 
+    public function getDetails()
+    {
+        return $this->details;
+    }
+
+    /**
+     * Set the value of details
+     *
+     * @return  self
+     */ 
+    public function setDetails($details)
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of coupon
+     */ 
+    public function getCoupon()
+    {
+        return $this->coupon;
+    }
+
+    /**
+     * Set the value of coupon
+     *
+     * @return  self
+     */ 
+    public function setCoupon($coupon)
+    {
+        $this->coupon = $coupon;
+
+        return $this;
+    }
 }

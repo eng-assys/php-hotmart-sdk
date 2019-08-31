@@ -42,4 +42,24 @@ class Offer implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of key
+     */ 
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * Set the value of key
+     *
+     * @return  self
+     */ 
+    public function setKey($key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
 }

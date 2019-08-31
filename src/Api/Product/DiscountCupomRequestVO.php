@@ -51,4 +51,84 @@ class DiscountCupomRequestVO implements HotmartSerializable
     }
    
     
+
+    /**
+     * Get the value of offerActivationCode
+     */ 
+    public function getOfferActivationCode()
+    {
+        return $this->offerActivationCode;
+    }
+
+    /**
+     * Set the value of offerActivationCode
+     *
+     * @return  self
+     */ 
+    public function setOfferActivationCode($offerActivationCode)
+    {
+        $this->offerActivationCode = $offerActivationCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of currencyCode
+     */ 
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
+    }
+
+    /**
+     * Set the value of currencyCode
+     *
+     * @return  self
+     */ 
+    public function setCurrencyCode($currencyCode)
+    {
+        $this->currencyCode = $currencyCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of discountPercentage
+     */ 
+    public function getDiscountPercentage()
+    {
+        return $this->discountPercentage;
+    }
+
+    /**
+     * Set the value of discountPercentage
+     *
+     * @return  self
+     */ 
+    public function setDiscountPercentage($discountPercentage)
+    {
+        $this->discountPercentage = $discountPercentage;
+
+        return $this;
+    }
 }
