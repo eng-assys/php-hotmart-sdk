@@ -45,4 +45,44 @@ class CurrencyValueVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of value
+     */ 
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set the value of value
+     *
+     * @return  self
+     */ 
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of currencyCode
+     */ 
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
+    }
+
+    /**
+     * Set the value of currencyCode
+     *
+     * @return  self
+     */ 
+    public function setCurrencyCode($currencyCode)
+    {
+        $this->currencyCode = $currencyCode;
+
+        return $this;
+    }
 }
