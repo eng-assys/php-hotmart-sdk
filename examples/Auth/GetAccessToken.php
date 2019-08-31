@@ -14,9 +14,9 @@ $auth = new Auth($envClientId, $envClientSecret);
 
 try {
     // Get The AccessToken to use HotConnect
-    $access_token = (new HotmartAuth($environment))->getAccessToken($auth);
+    $accessToken = (new HotmartAuth($environment))->getAccessToken($auth);
 
-    print_r($access_token);
+    print_r($accessToken->jsonSerialize());
 } catch (HotmartRequestException $e) {
     print_r($e);
 }
