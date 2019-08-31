@@ -51,4 +51,84 @@ class ProductSalesHistoryResponseVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ucode
+     */ 
+    public function getUcode()
+    {
+        return $this->ucode;
+    }
+
+    /**
+     * Set the value of ucode
+     *
+     * @return  self
+     */ 
+    public function setUcode($ucode)
+    {
+        $this->ucode = $ucode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of hasCoProduction
+     */ 
+    public function getHasCoProduction()
+    {
+        return $this->hasCoProduction;
+    }
+
+    /**
+     * Set the value of hasCoProduction
+     *
+     * @return  self
+     */ 
+    public function setHasCoProduction($hasCoProduction)
+    {
+        $this->hasCoProduction = $hasCoProduction;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of subscription
+     */ 
+    public function getSubscription()
+    {
+        return $this->subscription;
+    }
+
+    /**
+     * Set the value of subscription
+     *
+     * @return  self
+     */ 
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+
+        return $this;
+    }
 }

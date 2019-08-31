@@ -45,4 +45,44 @@ class OfferResponseVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of paymentMode
+     */ 
+    public function getPaymentMode()
+    {
+        return $this->paymentMode;
+    }
+
+    /**
+     * Set the value of paymentMode
+     *
+     * @return  self
+     */ 
+    public function setPaymentMode($paymentMode)
+    {
+        $this->paymentMode = $paymentMode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of code
+     */ 
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set the value of code
+     *
+     * @return  self
+     */ 
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
 }

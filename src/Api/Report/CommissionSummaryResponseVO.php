@@ -45,4 +45,44 @@ class CommissionSummaryResponseVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of totalItems
+     */ 
+    public function getTotalItems()
+    {
+        return $this->totalItems;
+    }
+
+    /**
+     * Set the value of totalItems
+     *
+     * @return  self
+     */ 
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of totalValue
+     */ 
+    public function getTotalValue()
+    {
+        return $this->totalValue;
+    }
+
+    /**
+     * Set the value of totalValue
+     *
+     * @return  self
+     */ 
+    public function setTotalValue($totalValue)
+    {
+        $this->totalValue = $totalValue;
+
+        return $this;
+    }
 }

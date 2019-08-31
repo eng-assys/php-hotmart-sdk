@@ -48,4 +48,64 @@ class ENotasResponseVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of pdf
+     */ 
+    public function getPdf()
+    {
+        return $this->pdf;
+    }
+
+    /**
+     * Set the value of pdf
+     *
+     * @return  self
+     */ 
+    public function setPdf($pdf)
+    {
+        $this->pdf = $pdf;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of xml
+     */ 
+    public function getXml()
+    {
+        return $this->xml;
+    }
+
+    /**
+     * Set the value of xml
+     *
+     * @return  self
+     */ 
+    public function setXml($xml)
+    {
+        $this->xml = $xml;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status
+     */ 
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     *
+     * @return  self
+     */ 
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }
