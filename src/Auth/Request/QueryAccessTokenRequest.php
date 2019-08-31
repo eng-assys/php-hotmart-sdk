@@ -35,8 +35,9 @@ class QueryAccessTokenRequest extends AbstractRequest
      */
     public function execute($auth)
     {
-        $url = $this->environment->getApiUrl() . 'oauth2/token';
-
+        $urlParams = "grant_type=client_credentials&client_id={$auth->getClientId()}&client_secret={$auth->getClientSecret()}";
+        $url = "{$this->environment->getApiUrl()}security/oauth/token?{$urlParams}";
+        
         $auth_request = [
             $auth->getClientId(),
             $auth->getClientSecret()
@@ -44,15 +45,11 @@ class QueryAccessTokenRequest extends AbstractRequest
 
         $headers = [
             'Accept: application/json',
-            'User-Agent: Gerenciagram Hotmart API PHP SDK',
+            'User-Agent: Gerenciagram Hotmart API PHP SDK'
         ];
 
-        $form_params = [
-            'grant_type' => 'client_credentials'
-        ];
+        return $this->post($url, [], $headers, [], $auth_request);
 
-        return $this->post($url, [], $headers, [], $auth_request, $form_params);
-        
     }
 
     /**
