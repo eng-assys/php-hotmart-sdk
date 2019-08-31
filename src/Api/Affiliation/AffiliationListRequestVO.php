@@ -42,4 +42,24 @@ class AffiliationListRequestVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of productIds
+     */ 
+    public function getProductIds()
+    {
+        return $this->productIds;
+    }
+
+    /**
+     * Set the value of productIds
+     *
+     * @return  self
+     */ 
+    public function setProductIds($productIds)
+    {
+        $this->productIds = $productIds;
+
+        return $this;
+    }
 }

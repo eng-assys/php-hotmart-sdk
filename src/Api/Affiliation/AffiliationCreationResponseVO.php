@@ -50,4 +50,84 @@ class AffiliationCreationResponseVO implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of productId
+     */ 
+    public function getProductId()
+    {
+        return $this->productId;
+    }
+
+    /**
+     * Set the value of productId
+     *
+     * @return  self
+     */ 
+    public function setProductId($productId)
+    {
+        $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of affiliation
+     */ 
+    public function getAffiliation()
+    {
+        return $this->affiliation;
+    }
+
+    /**
+     * Set the value of affiliation
+     *
+     * @return  self
+     */ 
+    public function setAffiliation($affiliation)
+    {
+        $this->affiliation = $affiliation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of errorCode
+     */ 
+    public function getErrorCode()
+    {
+        return $this->errorCode;
+    }
+
+    /**
+     * Set the value of errorCode
+     *
+     * @return  self
+     */ 
+    public function setErrorCode($errorCode)
+    {
+        $this->errorCode = $errorCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of errorMessage
+     */ 
+    public function getErrorMessage()
+    {
+        return $this->errorMessage;
+    }
+
+    /**
+     * Set the value of errorMessage
+     *
+     * @return  self
+     */ 
+    public function setErrorMessage($errorMessage)
+    {
+        $this->errorMessage = $errorMessage;
+
+        return $this;
+    }
 }
