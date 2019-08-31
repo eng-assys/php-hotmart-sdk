@@ -2,7 +2,7 @@
 
 namespace Hotmart\Auth;
 
-use Hotmart\AuthRequest\QueryAccessTokenRequest;
+use Hotmart\Auth\Request\QueryAccessTokenRequest;
 
 /**
  * The Hotmart Auth SDK front-end;
@@ -41,7 +41,6 @@ class HotmartAuth
      */
     public function createAuthToken($auth)
     {
-        
         $queryAccessTokenRequest = new QueryAccessTokenRequest($this->environment);
 
         return $queryAccessTokenRequest->execute($auth);
