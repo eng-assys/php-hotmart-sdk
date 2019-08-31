@@ -2,4 +2,3 @@
 
 $envClientId = '';
 $envClientSecret = '';
-$envClientBasic = '';

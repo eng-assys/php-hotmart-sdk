@@ -9,11 +9,9 @@ namespace Hotmart\Auth;
  */
 class Auth implements \JsonSerializable
 {
-    private $client_id;
+    private $clientId;
 
-    private $client_secret;
-
-    private $client_basic;
+    private $clientSecret;
 
     /**
      * @param $json
@@ -41,15 +39,13 @@ class Auth implements \JsonSerializable
     /**
      * Auth constructor.
      *
-     * @param $client_id
-     * @param $client_secret
-     * @param $client_basic
+     * @param $clientId
+     * @param $clientSecret
      */
-    public function __construct($client_id, $client_secret, $client_basic)
+    public function __construct($clientId, $clientSecret)
     {
-        $this->client_id  = $client_id;
-        $this->client_secret  = $client_secret;
-        $this->client_basic  = $client_basic;
+        $this->clientId  = $clientId;
+        $this->clientSecret  = $clientSecret;
     }
 
     /**
@@ -57,9 +53,8 @@ class Auth implements \JsonSerializable
      */
     public function populate(\stdClass $data)
     {
-        $this->client_id = isset($data->client_id) ? $data->client_id : null;
-        $this->client_secret = isset($data->client_secret) ? $data->client_secret : null;
-        $this->client_basic = isset($data->client_basic) ? $data->client_basic : null;
+        $this->clientId = isset($data->client_id) ? $data->client_id : null;
+        $this->clientSecret = isset($data->client_secret) ? $data->client_secret : null;
     }
 
     /**
@@ -67,17 +62,17 @@ class Auth implements \JsonSerializable
      */
     public function getClientId()
     {
-        return $this->client_id;
+        return $this->clientId;
     }
 
     /**
-     * @param $client_id
+     * @param $clientId
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setClientId($clientId)
     {
-        $this->client_id = $client_id;
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -87,37 +82,17 @@ class Auth implements \JsonSerializable
      */
     public function getClientSecret()
     {
-        return $this->client_secret;
+        return $this->clientSecret;
     }
 
     /**
-     * @param $client_secret
+     * @param $clientSecret
      *
      * @return $this
      */
-    public function setClientSecret($client_secret)
+    public function setClientSecret($clientSecret)
     {
-        $this->client_secret = $client_secret;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getClientBasic()
-    {
-        return $this->client_basic;
-    }
-
-    /**
-     * @param $client_basic
-     *
-     * @return $this
-     */
-    public function setClientBasic($client_basic)
-    {
-        $this->client_basic = $client_basic;
+        $this->clientSecret = $clientSecret;
 
         return $this;
     }
