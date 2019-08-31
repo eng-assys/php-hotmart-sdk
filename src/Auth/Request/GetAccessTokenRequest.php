@@ -8,17 +8,17 @@ use Hotmart\Auth\Token;
 use Hotmart\Auth\Environment;
 
 /**
- * Class QueryAccessTokenRequest
+ * Class GetAccessTokenRequest
  *
  * @package Hotmart\Auth\Request
  */
-class QueryAccessTokenRequest extends AbstractRequest
+class GetAccessTokenRequest extends AbstractRequest
 {
 
     private $environment;
 
     /**
-     * QueryAccessTokenRequest constructor.
+     * GetAccessTokenRequest constructor.
      *
      * @param Environment $environment
      */

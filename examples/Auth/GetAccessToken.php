@@ -1,7 +1,7 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
-include '.env.php';
+include '../.env.php';
 
 use Hotmart\Auth\Environment;
 use Hotmart\Auth\HotmartAuth;
