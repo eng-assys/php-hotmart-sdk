@@ -1,15 +1,15 @@
 <?php
 
-namespace Hotmart\Api\Request\Affiliation;
+namespace Hotmart\Api\Subscription\Request;
 
 use Hotmart\Request\AbstractRequest;
 
 /**
- * Class CreateListOfAffiliationRequest
+ * Class CancelSubscriptionRequest
  *
- * @package Hotmart\Api\Request
+ * @package Hotmart\Api\Request\Subscription
  */
-class CreateListOfAffiliationRequest extends AbstractRequest
+class CancelSubscriptionRequest extends AbstractRequest
 {
 
    

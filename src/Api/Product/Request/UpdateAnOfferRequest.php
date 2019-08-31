@@ -1,6 +1,6 @@
 <?php
 
-namespace Hotmart\Api\Request\Product;
+namespace Hotmart\Api\Product\Request;
 
 use Hotmart\Request\AbstractRequest;
 

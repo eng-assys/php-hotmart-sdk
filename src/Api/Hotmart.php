@@ -2,7 +2,7 @@
 
 namespace Hotmart;
 
-class ResultData
+class Hotmart
 {
     
    

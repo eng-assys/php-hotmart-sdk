@@ -17,6 +17,28 @@ class AffiliationCreationResponseVO implements HotmartSerializable
     // string
     private $errorMessage;
 
+    /**
+     * @param $json
+     *
+     * @return AffiliationCreationResponseVO
+     */
+    public static function fromJson($json)
+    {
+        $object = json_decode($json);
+
+        $newObject = new AffiliationCreationResponseVO();
+        $newObject->populate($object);
+
+        return $newObject;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return array_filter(get_object_vars($this));
+    }
 
     /**
      * @param \stdClass $data
@@ -24,16 +46,6 @@ class AffiliationCreationResponseVO implements HotmartSerializable
      * @return mixed
      */
     public function populate(\stdClass $data)
-    {
-
-    }
-
-    /**
-     * @param string $json
-     *
-     * @return mixed
-     */
-    public static function fromJson(string $json)
     {
 
     }

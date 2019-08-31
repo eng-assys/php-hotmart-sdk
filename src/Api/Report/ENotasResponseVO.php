@@ -15,7 +15,30 @@ class ENotasResponseVO implements HotmartSerializable
     // string
     private $status;
 
-  /**
+    /**
+     * @param $json
+     *
+     * @return ENotasResponseVO
+     */
+    public static function fromJson($json)
+    {
+        $object = json_decode($json);
+
+        $newObject = new ENotasResponseVO();
+        $newObject->populate($object);
+
+        return $newObject;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return array_filter(get_object_vars($this));
+    }
+
+    /**
      * @param \stdClass $data
      *
      * @return mixed
@@ -24,15 +47,5 @@ class ENotasResponseVO implements HotmartSerializable
     {
 
     }
-
-    /**
-     * @param string $json
-     *
-     * @return mixed
-     */
-    public static function fromJson(string $json)
-    {
-
-    } 
     
 }
