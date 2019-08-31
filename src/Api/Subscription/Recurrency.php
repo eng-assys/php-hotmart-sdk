@@ -41,4 +41,24 @@ class Recurrency implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of recurrencyNumber
+     */ 
+    public function getRecurrencyNumber()
+    {
+        return $this->recurrencyNumber;
+    }
+
+    /**
+     * Set the value of recurrencyNumber
+     *
+     * @return  self
+     */ 
+    public function setRecurrencyNumber($recurrencyNumber)
+    {
+        $this->recurrencyNumber = $recurrencyNumber;
+
+        return $this;
+    }
 }
