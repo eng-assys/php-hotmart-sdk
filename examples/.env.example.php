@@ -1,0 +1,5 @@
+<?php
+
+$envClientId = '';
+$envClientSecret = '';
+$envClientBasic = '';
