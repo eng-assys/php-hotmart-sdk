@@ -1,11 +1,11 @@
 <?php
 
-namespace BraspagSplit;
+namespace Hotmart;
 
 /**
  * Interface Environment
  *
- * @package BraspagSplit
+ * @package Hotmart
  */
 interface Environment
 {
