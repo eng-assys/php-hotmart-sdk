@@ -48,7 +48,9 @@ class ProductSalesHistoryResponseVO implements HotmartSerializable
      */
     public function populate(\stdClass $data)
     {
-
+        foreach (get_object_vars($this) as $key => $value) {
+            $this->{$key} = $data->{$key} ?? null;
+        }
     }
     
 
