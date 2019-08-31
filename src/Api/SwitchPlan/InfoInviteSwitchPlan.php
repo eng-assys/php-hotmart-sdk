@@ -47,4 +47,64 @@ class InfoInviteSwitchPlan implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of idSwitchPlanSolicitation
+     */ 
+    public function getIdSwitchPlanSolicitation()
+    {
+        return $this->idSwitchPlanSolicitation;
+    }
+
+    /**
+     * Set the value of idSwitchPlanSolicitation
+     *
+     * @return  self
+     */ 
+    public function setIdSwitchPlanSolicitation($idSwitchPlanSolicitation)
+    {
+        $this->idSwitchPlanSolicitation = $idSwitchPlanSolicitation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of subscription
+     */ 
+    public function getSubscription()
+    {
+        return $this->subscription;
+    }
+
+    /**
+     * Set the value of subscription
+     *
+     * @return  self
+     */ 
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of statusInviteSwitchPlan
+     */ 
+    public function getStatusInviteSwitchPlan()
+    {
+        return $this->statusInviteSwitchPlan;
+    }
+
+    /**
+     * Set the value of statusInviteSwitchPlan
+     *
+     * @return  self
+     */ 
+    public function setStatusInviteSwitchPlan($statusInviteSwitchPlan)
+    {
+        $this->statusInviteSwitchPlan = $statusInviteSwitchPlan;
+
+        return $this;
+    }
 }

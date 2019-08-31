@@ -50,4 +50,84 @@ class SendInviteSwitchPlanRequest implements HotmartSerializable
 
     }
     
+
+    /**
+     * Get the value of idProduct
+     */ 
+    public function getIdProduct()
+    {
+        return $this->idProduct;
+    }
+
+    /**
+     * Set the value of idProduct
+     *
+     * @return  self
+     */ 
+    public function setIdProduct($idProduct)
+    {
+        $this->idProduct = $idProduct;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of listSubscriberCode
+     */ 
+    public function getListSubscriberCode()
+    {
+        return $this->listSubscriberCode;
+    }
+
+    /**
+     * Set the value of listSubscriberCode
+     *
+     * @return  self
+     */ 
+    public function setListSubscriberCode($listSubscriberCode)
+    {
+        $this->listSubscriberCode = $listSubscriberCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of listOfferCode
+     */ 
+    public function getListOfferCode()
+    {
+        return $this->listOfferCode;
+    }
+
+    /**
+     * Set the value of listOfferCode
+     *
+     * @return  self
+     */ 
+    public function setListOfferCode($listOfferCode)
+    {
+        $this->listOfferCode = $listOfferCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of onlyAvailableSwitchPlan
+     */ 
+    public function getOnlyAvailableSwitchPlan()
+    {
+        return $this->onlyAvailableSwitchPlan;
+    }
+
+    /**
+     * Set the value of onlyAvailableSwitchPlan
+     *
+     * @return  self
+     */ 
+    public function setOnlyAvailableSwitchPlan($onlyAvailableSwitchPlan)
+    {
+        $this->onlyAvailableSwitchPlan = $onlyAvailableSwitchPlan;
+
+        return $this;
+    }
 }
