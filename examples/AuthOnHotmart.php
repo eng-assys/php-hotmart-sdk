@@ -10,11 +10,7 @@ use Hotmart\Auth\Auth;
 $environment = Environment::production();
 
 // Set Authentication Object
-$clientId = $envClientId;
-$clientSecret = $envClientSecret;
-$clientBasic = $envClientBasic;
-
-$auth = new Auth($clientId, $clientSecret, $clientBasic);
+$auth = new Auth($envClientId, $envClientSecret, $envClientBasic);
 
 try {
     // Get The AccessToken to use HotConnect
