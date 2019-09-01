@@ -5,50 +5,52 @@ namespace Hotmart\Api\Product\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\Common\ResultData;
 /**
- * Class GetOfferOfProductRequest
+ * Class GetOffersOfProductRequest
  *
  * @package Hotmart\Api\Request\Product
  */
-class GetOfferOfProductRequest extends AbstractRequest
+class GetOffersOfProductRequest extends AbstractRequest
 {
     private $environment;
 
     /**
-     * GetOfferOfProductRequest constructor.
+     * GetOffersOfProductRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment)
+    public function __construct(Hotconnect $hotconnect, Environment $environment, $productId)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
+        
+        $this->productId = $productId;
     }
 
     /**
-     * @param $sale
      *
-     * @return null
+     * @return ResultData<OfferDetailedResponseVO>
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($param = null)
     {
-        $url = $this->environment->getApiUrl() . 'product/rest/v2/{productId}/offers/';
-
-        return $this->sendRequest('POST', $url, $sale);
+        $url = "{$this->environment->getApiUrl()}product/rest/v2/{$this->productId}/offers/";
+        return $this->send($url, 'GET');
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return ResultData<OfferDetailedResponseVO>
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return ResultData::fromJson($json);
     }
    
 }
