@@ -48,7 +48,7 @@ class GetAccessTokenRequest extends AbstractRequest
             'User-Agent: Gerenciagram Hotmart API PHP SDK'
         ];
 
-        return $this->post($url, [], $headers, [], $auth_request);
+        return $this->send($url, 'POST', null, $headers, [], $auth_request);
 
     }
 
