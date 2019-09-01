@@ -66,10 +66,10 @@ class Hotmart
     }
 
 
-    public function addAnOffer($auth)
+    public function addAnOffer($productId, $productPaymentRequestVO)
     {
-        $addAnOfferRequest = new AddAnOfferRequest($this->hotconnect, $this->environment);
-        return $addAnOfferRequest->execute($auth);
+        $addAnOfferRequest = new AddAnOfferRequest($this->hotconnect, $this->environment, $productId);
+        return $addAnOfferRequest->execute($productPaymentRequestVO);
     }
 
     public function deleteOffer($productId, $offerId)
@@ -90,18 +90,17 @@ class Hotmart
         return $getProduct->execute();
     }
 
-    public function updateAnOffer($auth)
+    public function updateAnOffer($productId, $offerId, $productPaymentRequestVO)
     {
-        $updateAnOfferRequest = new UpdateAnOfferRequest($this->hotconnect, $this->environment);
-        return $updateAnOfferRequest->execute($auth);
+        $updateAnOfferRequest = new UpdateAnOfferRequest($this->hotconnect, $this->environment, $productId, $offerId);
+        return $updateAnOfferRequest->execute($productPaymentRequestVO);
     }
 
-    public function updateProduct($auth)
+    public function updateProduct($productId, $productInfoRequestVO)
     {
-        $updateProductRequest = new UpdateProductRequest($this->hotconnect, $this->environment);
-        return $updateProductRequest->execute($auth);
+        $updateProductRequest = new UpdateProductRequest($this->hotconnect, $this->environment, $productId);
+        return $updateProductRequest->execute($productInfoRequestVO);
     }
-
 
     public function getPurchaseDetails($auth)
     {

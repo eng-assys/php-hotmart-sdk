@@ -14,41 +14,48 @@ class UpdateAnOfferRequest extends AbstractRequest
 {
     private $environment;
 
+    private $productId;
+
+    private $offerId;
+
     /**
      * UpdateAnOfferRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment)
+    public function __construct(Hotconnect $hotconnect, Environment $environment, $productId, $offerId)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
+
+        $this->productId = $productId;
+        $this->offerId = $offerId;
     }
 
     /**
-     * @param $sale
+     * @param $productPaymentRequestVO
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($productPaymentRequestVO)
     {
-        $url = $this->environment->getApiUrl() . 'product/rest/v2/{productId}/offer/{offerId}';
+        $url = "{$this->environment->getApiUrl()}product/rest/v2/{$this->productId}/offer/{$this->offerId}";
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'PUT', $productPaymentRequestVO);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return null
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return null;
     }
    
 }
