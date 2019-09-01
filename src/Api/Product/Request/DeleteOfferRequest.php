@@ -14,41 +14,51 @@ class DeleteOfferRequest extends AbstractRequest
 {
     private $environment;
 
+    private $productId;
+
+    private $offerId;
+
     /**
      * DeleteOfferRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
+     * @param $productId
+     * @param $offerId
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment)
+    public function __construct(Hotconnect $hotconnect, Environment $environment, $productId, $offerId)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
+
+        $this->productId = $productId;
+
+        $this->offerId = $offerId;
     }
 
     /**
-     * @param $sale
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($param = null)
     {
-        $url = $this->environment->getApiUrl() . 'product/rest/v2/{productId}/offer/{offerId}';
+        $url = "{$this->environment->getApiUrl()}product/rest/v2/{$this->productId}/offer/{$this->offerId}";
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->sendRequest('DELETE', $url);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return null
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        // return json_decode($json);
+        return null;
     }
    
 }

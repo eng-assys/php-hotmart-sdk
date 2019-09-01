@@ -72,10 +72,10 @@ class Hotmart
         return $addAnOfferRequest->execute($auth);
     }
 
-    public function deleteOffer($auth)
+    public function deleteOffer($productId, $offerId)
     {
-        $deleteOfferRequest = new DeleteOfferRequest($this->hotconnect, $this->environment);
-        return $deleteOfferRequest->execute($auth);
+        $deleteOfferRequest = new DeleteOfferRequest($this->hotconnect, $this->environment, $productId, $offerId);
+        return $deleteOfferRequest->execute();
     }
 
     public function getOfferOfProduct($auth)

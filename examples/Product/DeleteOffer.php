@@ -13,9 +13,9 @@ $hotconnect = new HotConnect($envToken);
 
 try {
     // Get The AccessToken to use HotConnect
-    $hotlinks = (new Hotmart($environment, $hotconnect))->deleteOffer($param);
+    $deleteOffer = (new Hotmart($environment, $hotconnect))->deleteOffer($productId, $offerId);
 
-    print_r($hotlinks->jsonSerialize());
+    print_r($deleteOffer);
 } catch (HotmartRequestException $e) {
     print_r($e);
 }
