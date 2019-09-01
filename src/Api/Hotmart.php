@@ -11,7 +11,7 @@ use Hotmart\Api\Affiliation\Request\GetHotlinksRequest;
 use Hotmart\Api\Product\Request\AddAnOfferRequest;
 use Hotmart\Api\Product\Request\DeleteOfferRequest;
 use Hotmart\Api\Product\Request\GetOffersOfProductRequest;
-use Hotmart\Api\Product\Request\GetProduct;
+use Hotmart\Api\Product\Request\GetProductRequest;
 use Hotmart\Api\Product\Request\UpdateAnOfferRequest;
 use Hotmart\Api\Product\Request\UpdateProductRequest;
 use Hotmart\Api\Report\Request\GetPurchaseDetailsRequest;
@@ -84,10 +84,10 @@ class Hotmart
         return $getOffersOfProductRequest->execute();
     }
 
-    public function getProduct($auth)
+    public function getProduct($productId)
     {
-        $getProduct = new GetProduct($this->hotconnect, $this->environment);
-        return $getProduct->execute($auth);
+        $getProduct = new GetProductRequest($this->hotconnect, $this->environment, $productId);
+        return $getProduct->execute();
     }
 
     public function updateAnOffer($auth)
