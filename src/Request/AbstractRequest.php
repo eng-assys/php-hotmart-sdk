@@ -73,14 +73,20 @@ abstract class AbstractRequest {
         $guzzle_client = new GuzzleClient($options);
         $exceptionMessage = null;
 
-        try {
+        try{
             $callback = $guzzle_client->request($method, $url, $request_params);
             $jsonBody = $callback->getBody();
             $statusCode = $callback->getStatusCode();
         } catch (ConnectException | ClientException | ServerException $ex) {
             $exceptionMessage = $ex->getMessage();
-            $jsonBody = $ex->getResponse()->getBody();
-            $statusCode = $ex->getResponse()->getStatusCode();
+            if(!empty($ex->getResponse())){
+                $jsonBody = $ex->getResponse()->getBody();
+                $statusCode = $ex->getResponse()->getBody();
+            }
+            else{
+                $jsonBody = null;
+                $statusCode = null;
+            } 
         }
 
         return $this->readResponse($statusCode, $jsonBody, $exceptionMessage);
@@ -105,7 +111,7 @@ abstract class AbstractRequest {
                 $unserialized = $this->unserialize($responseBody);
                 break;
             case 401:
-                throw new HotmartRequestException(empty($responseMessage) ? 'Bad Request' : $responseMessage, $statusCode);
+                throw new HotmartRequestException(empty($responseMessage) ? 'Unauthorized' : $responseMessage, $statusCode);
                 break;
             case 400:
                 $exception = null;
