@@ -37,7 +37,21 @@ abstract class AbstractRequest {
         return $data;
     }
 
-    private function send($url, $method, $body, $headers = [], $options = [], $auth = [], $formParams = [])
+    /**
+     * @param $url
+     * @param $method
+     * @param \JsonSerializable|null $body
+     * @param array $headers
+     * @param array $options
+     * @param array $auth
+     * @param array $formParams
+     *
+     * @return mixed
+     *
+     * @throws \Hotmart\Request\Hotmart
+     * @throws \RuntimeException
+     */
+    public function send($url, $method, \JsonSerializable $body = null, $headers = [], $options = [], $auth = [], $formParams = [])
     {
         if(isset($this->hotconnect) && empty($headers)){
             $headers = [
@@ -68,28 +82,9 @@ abstract class AbstractRequest {
             $jsonBody = $ex->getResponse()->getBody();
             $statusCode = $ex->getResponse()->getStatusCode();
         }
-        
+
         return $this->readResponse($statusCode, $jsonBody, $exceptionMessage);
 
-    }
-
-    /**
-     * @param $method
-     * @param $url
-     * @param \JsonSerializable|null $content
-     *
-     * @return mixed
-     *
-     * @throws \Hotmart\Request\Hotmart
-     * @throws \RuntimeException
-     */
-    protected function sendRequest($method, $url, \JsonSerializable $content = null){
-        return $this->send($url, $method, json_encode($content));
-    }
-    
-    public function post($url, $body, $headers = [], $options = [], $auth = [], $formParams = [])
-    {
-        return $this->send($url, 'POST', $body, $headers, $options, $auth, $formParams);
     }
 
     /**
