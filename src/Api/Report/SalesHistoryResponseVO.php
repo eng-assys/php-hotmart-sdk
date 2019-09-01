@@ -43,10 +43,9 @@ class SalesHistoryResponseVO implements HotmartSerializable
      */
     public static function fromJson($json)
     {
-        $object = json_decode($json);
 
         $newObject = new SalesHistoryResponseVO();
-        $newObject->populate($object);
+        $newObject->populate(json_decode($json)->body);
 
         return $newObject;
     }

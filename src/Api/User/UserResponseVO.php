@@ -51,10 +51,9 @@ class UserResponseVO implements HotmartSerializable
      */
     public static function fromJson($json)
     {
-        $object = json_decode($json);
 
         $newObject = new UserResponseVO();
-        $newObject->populate($object);
+        $newObject->populate(json_decode($json)->body);
 
         return $newObject;
     }

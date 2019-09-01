@@ -36,10 +36,9 @@ class AddressResponseVO implements HotmartSerializable
      */
     public static function fromJson($json)
     {
-        $object = json_decode($json);
 
         $newObject = new AddressResponseVO();
-        $newObject->populate($object);
+        $newObject->populate(json_decode($json)->body);
 
         return $newObject;
     }

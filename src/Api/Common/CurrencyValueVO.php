@@ -19,10 +19,9 @@ class CurrencyValueVO implements HotmartSerializable
      */
     public static function fromJson($json)
     {
-        $object = json_decode($json);
 
         $newObject = new CurrencyValueVO();
-        $newObject->populate($object);
+        $newObject->populate(json_decode($json)->body);
 
         return $newObject;
     }

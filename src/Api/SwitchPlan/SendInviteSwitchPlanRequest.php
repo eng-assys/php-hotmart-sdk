@@ -24,10 +24,9 @@ class SendInviteSwitchPlanRequest implements HotmartSerializable
      */
     public static function fromJson($json)
     {
-        $object = json_decode($json);
 
         $newObject = new SendInviteSwitchPlanRequest();
-        $newObject->populate($object);
+        $newObject->populate(json_decode($json)->body);
 
         return $newObject;
     }
