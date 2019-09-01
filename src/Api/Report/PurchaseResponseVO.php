@@ -60,7 +60,7 @@ class PurchaseResponseVO implements HotmartSerializable
     {
 
         $newObject = new PurchaseResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

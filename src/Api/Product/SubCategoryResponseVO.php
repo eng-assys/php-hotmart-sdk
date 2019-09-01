@@ -18,7 +18,7 @@ class SubCategoryResponseVO implements HotmartSerializable
     {
 
         $newObject = new SubCategoryResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

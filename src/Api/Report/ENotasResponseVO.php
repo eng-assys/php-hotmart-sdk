@@ -24,7 +24,7 @@ class ENotasResponseVO implements HotmartSerializable
     {
 
         $newObject = new ENotasResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

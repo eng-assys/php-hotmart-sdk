@@ -48,7 +48,7 @@ class PaymentDetailsRequestVO implements HotmartSerializable
     {
 
         $newObject = new PaymentDetailsRequestVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

@@ -18,7 +18,7 @@ class CategoryResponseVO implements HotmartSerializable
     {
 
         $newObject = new CategoryResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

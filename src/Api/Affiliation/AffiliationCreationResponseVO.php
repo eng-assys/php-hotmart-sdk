@@ -25,7 +25,7 @@ class AffiliationCreationResponseVO implements HotmartSerializable
     public static function fromJson($json)
     {
         $newObject = new AffiliationCreationResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

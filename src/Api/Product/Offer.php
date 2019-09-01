@@ -18,7 +18,7 @@ class Offer implements HotmartSerializable
     {
 
         $newObject = new Offer();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

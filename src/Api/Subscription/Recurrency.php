@@ -17,7 +17,7 @@ class Recurrency implements HotmartSerializable
     {
 
         $newObject = new Recurrency();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

@@ -38,7 +38,7 @@ class SubscriptionPlanRequestVO implements HotmartSerializable
     {
 
         $newObject = new SubscriptionPlanRequestVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

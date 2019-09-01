@@ -21,7 +21,7 @@ class OfferResponseVO implements HotmartSerializable
     {
 
         $newObject = new OfferResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

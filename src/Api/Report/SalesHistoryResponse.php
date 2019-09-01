@@ -24,7 +24,7 @@ class SalesHistoryResponse implements HotmartSerializable
     {
 
         $newObject = new SalesHistoryResponse();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

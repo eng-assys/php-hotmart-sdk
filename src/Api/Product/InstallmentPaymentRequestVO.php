@@ -36,7 +36,7 @@ class InstallmentPaymentRequestVO implements HotmartSerializable
     {
 
         $newObject = new InstallmentPaymentRequestVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

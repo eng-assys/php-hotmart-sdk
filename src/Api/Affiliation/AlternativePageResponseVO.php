@@ -29,7 +29,7 @@ class AlternativePageResponseVO implements HotmartSerializable
     {
 
         $newObject = new AlternativePageResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

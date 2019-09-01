@@ -22,10 +22,7 @@ class ResultData implements HotmartSerializable
     public static function fromJson($json)
     {
         $newObject = new ResultData();
-        $json_decoded = json_decode($json);
-        $json_decoded = isset($json_decoded->body) ? $json_decoded->body : $json_decoded;
-        $newObject->populate($json_decoded);
-
+        $newObject->populate(json_decode($json));
         return $newObject;
     }
 

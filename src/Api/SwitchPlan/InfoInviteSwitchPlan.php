@@ -23,7 +23,7 @@ class InfoInviteSwitchPlan implements HotmartSerializable
     {
 
         $newObject = new InfoInviteSwitchPlan();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

@@ -44,7 +44,7 @@ class Subscription implements HotmartSerializable
     {
 
         $newObject = new Subscription();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

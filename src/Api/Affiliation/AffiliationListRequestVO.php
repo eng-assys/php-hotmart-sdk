@@ -18,7 +18,7 @@ class AffiliationListRequestVO implements HotmartSerializable
     {
 
         $newObject = new AffiliationListRequestVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

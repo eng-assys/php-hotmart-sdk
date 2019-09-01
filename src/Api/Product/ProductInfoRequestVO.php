@@ -36,7 +36,7 @@ class ProductInfoRequestVO implements HotmartSerializable
     {
 
         $newObject = new ProductInfoRequestVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

@@ -21,7 +21,7 @@ class CommissionSummaryResponseVO implements HotmartSerializable
     {
 
         $newObject = new CommissionSummaryResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

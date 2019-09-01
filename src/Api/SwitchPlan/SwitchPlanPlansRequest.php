@@ -29,7 +29,7 @@ class SwitchPlanPlansRequest implements HotmartSerializable
     {
 
         $newObject = new SwitchPlanPlansRequest();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

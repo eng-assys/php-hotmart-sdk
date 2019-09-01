@@ -35,7 +35,7 @@ class SubscriptionPlan implements HotmartSerializable
     {
 
         $newObject = new SubscriptionPlan();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

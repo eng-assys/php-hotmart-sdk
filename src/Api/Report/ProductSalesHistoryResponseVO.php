@@ -27,7 +27,7 @@ class ProductSalesHistoryResponseVO implements HotmartSerializable
     {
 
         $newObject = new ProductSalesHistoryResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

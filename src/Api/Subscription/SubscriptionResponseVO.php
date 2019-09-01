@@ -50,7 +50,7 @@ class SubscriptionResponseVO implements HotmartSerializable
     {
 
         $newObject = new SubscriptionResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

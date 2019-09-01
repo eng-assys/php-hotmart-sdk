@@ -26,7 +26,7 @@ class SendInviteSwitchPlanRequest implements HotmartSerializable
     {
 
         $newObject = new SendInviteSwitchPlanRequest();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

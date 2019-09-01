@@ -29,7 +29,7 @@ class AffiliationResponseVO implements HotmartSerializable
     {
 
         $newObject = new AffiliationResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

@@ -26,7 +26,7 @@ class UserBadgeResponseVO implements HotmartSerializable
     {
 
         $newObject = new UserBadgeResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

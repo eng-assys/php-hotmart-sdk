@@ -48,7 +48,7 @@ class BuyerInfoResponseVO implements HotmartSerializable
     {
 
         $newObject = new BuyerInfoResponseVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }

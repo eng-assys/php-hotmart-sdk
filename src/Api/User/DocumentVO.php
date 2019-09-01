@@ -20,7 +20,7 @@ class DocumentVO implements HotmartSerializable
     {
 
         $newObject = new DocumentVO();
-        $newObject->populate(json_decode($json)->body);
+        $newObject->populate(json_decode($json));
 
         return $newObject;
     }
