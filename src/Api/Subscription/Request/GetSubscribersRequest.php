@@ -15,41 +15,49 @@ class GetSubscribersRequest extends AbstractRequest
 
     private $environment;
 
+    private $page;
+
+    private $rows;
+
     /**
      * GetSubscribersRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment)
+    public function __construct(Hotconnect $hotconnect, Environment $environment, $page, $rows)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
+
+        $this->page = $page;
+
+        $this->rows = $rows;
     }
 
     /**
-     * @param $sale
+     * @param ResultData<SubscriptionResponseVO>
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($param=null)
     {
-        $url = $this->environment->getApiUrl() . 'subscriber/rest/v2';
+        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2?page={$this->page}&rows={$this->rows}";
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'GET');
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return ResultData<SubscriptionResponseVO>
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return ResultData::fromJson($json);
     }
    
 }
