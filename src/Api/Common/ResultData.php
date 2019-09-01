@@ -11,6 +11,9 @@ class ResultData implements HotmartSerializable
     // mixed
     private $data;
 
+    // integer
+    private $page;
+
    /**
      * @param $json
      *
@@ -19,7 +22,9 @@ class ResultData implements HotmartSerializable
     public static function fromJson($json)
     {
         $newObject = new ResultData();
-        $newObject->populate(json_decode($json)->body);
+        $json_decoded = json_decode($json);
+        $json_decoded = isset($json_decoded->body) ? $json_decoded->body : $json_decoded;
+        $newObject->populate($json_decoded);
 
         return $newObject;
     }
@@ -81,6 +86,26 @@ class ResultData implements HotmartSerializable
     public function setData($data)
     {
         $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of page
+     */ 
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * Set the value of page
+     *
+     * @return  self
+     */ 
+    public function setPage($page)
+    {
+        $this->page = $page;
 
         return $this;
     }
