@@ -5,6 +5,8 @@ namespace Hotmart\Api\Report\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\Common\ResultData;
 /**
  * Class GetPurchaseDetailsRequest
  *
@@ -28,27 +30,27 @@ class GetPurchaseDetailsRequest extends AbstractRequest
     }
 
     /**
-     * @param $sale
+     * @param $purchaseDetailsRequest
      *
-     * @return null
+     * @return ResultData<SubscriptionResponseVO>
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($purchaseDetailsRequest)
     {
         $url = $this->environment->getApiUrl() . 'reports/rest/v2/purchaseDetails';
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'POST', $purchaseDetailsRequest);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return ResultData<SubscriptionResponseVO>
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return ResultData::fromJson($json);
     }
    
 }

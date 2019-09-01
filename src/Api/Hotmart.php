@@ -102,16 +102,16 @@ class Hotmart
         return $updateProductRequest->execute($productInfoRequestVO);
     }
 
-    public function getPurchaseDetails($auth)
+    public function getPurchaseDetails($purchaseDetailsRequest)
     {
         $getPurchaseDetailsRequest = new GetPurchaseDetailsRequest($this->hotconnect, $this->environment);
-        return $getPurchaseDetailsRequest->execute($auth);
+        return $getPurchaseDetailsRequest->execute($purchaseDetailsRequest);
     }
 
-    public function getSalesHistory($auth)
+    public function getSalesHistory($salesHistoryRequest)
     {
         $getSalesHistoryRequest = new GetSalesHistoryRequest($this->hotconnect, $this->environment);
-        return $getSalesHistoryRequest->execute($auth);
+        return $getSalesHistoryRequest->execute($salesHistoryRequest);
     }
 
 
@@ -128,10 +128,10 @@ class Hotmart
     }
 
 
-    public function findPlanForSwitchPlan($SwitchPlanPlansRequest)
+    public function findPlanForSwitchPlan($switchPlanPlansRequest)
     {
         $findPlanForSwitchPlanRequest = new FindPlanForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $findPlanForSwitchPlanRequest->execute($SwitchPlanPlansRequest);
+        return $findPlanForSwitchPlanRequest->execute($switchPlanPlansRequest);
     }
 
     public function sendInviteForSwitchPlan($sendInviteSwitchPlanRequest)

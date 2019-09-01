@@ -5,6 +5,8 @@ namespace Hotmart\Api\Report\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\Report\SalesHistoryResponse;
 /**
  * Class GetSalesHistoryRequest
  *
@@ -28,27 +30,27 @@ class GetSalesHistoryRequest extends AbstractRequest
     }
 
     /**
-     * @param $sale
+     * @param $salesHistoryRequest
      *
-     * @return null
+     * @return SalesHistoryResponse
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($salesHistoryRequest)
     {
         $url = $this->environment->getApiUrl() . 'reports/rest/v2/history';
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'POST', $salesHistoryRequest);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return SalesHistoryResponse
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return SalesHistoryResponse::fromJson($json);
     }
    
 }
