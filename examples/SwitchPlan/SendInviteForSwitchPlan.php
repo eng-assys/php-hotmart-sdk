@@ -13,9 +13,9 @@ $hotconnect = new HotConnect($envToken);
 
 try {
     // Get The AccessToken to use HotConnect
-    $hotlinks = (new Hotmart($environment, $hotconnect))->sendInviteForSwitchPlan($param);
+    $sendInviteForSwitchPlan = (new Hotmart($environment, $hotconnect))->sendInviteForSwitchPlan($sendInviteSwitchPlanRequest);
 
-    print_r($hotlinks->jsonSerialize());
+    print_r($sendInviteForSwitchPlan->jsonSerialize());
 } catch (HotmartRequestException $e) {
     print_r($e);
 }

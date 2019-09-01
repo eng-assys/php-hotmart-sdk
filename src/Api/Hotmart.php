@@ -128,16 +128,16 @@ class Hotmart
     }
 
 
-    public function findPlanForSwitchPlan($auth)
+    public function findPlanForSwitchPlan($SwitchPlanPlansRequest)
     {
         $findPlanForSwitchPlanRequest = new FindPlanForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $findPlanForSwitchPlanRequest->execute($auth);
+        return $findPlanForSwitchPlanRequest->execute($SwitchPlanPlansRequest);
     }
 
-    public function sendInviteForSwitchPlan($auth)
+    public function sendInviteForSwitchPlan($sendInviteSwitchPlanRequest)
     {
         $sendInviteForSwitchPlanRequest = new SendInviteForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $sendInviteForSwitchPlanRequest->execute($auth);
+        return $sendInviteForSwitchPlanRequest->execute($sendInviteSwitchPlanRequest);
     }
 
 

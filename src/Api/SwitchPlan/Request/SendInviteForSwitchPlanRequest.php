@@ -5,6 +5,8 @@ namespace Hotmart\Api\SwitchPlan\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\SwitchPlan\SendInviteSwitchPlanResponse;
 /**
  * Class SendInviteForSwitchPlanRequest
  *
@@ -29,27 +31,27 @@ class SendInviteForSwitchPlanRequest extends AbstractRequest
     }
 
     /**
-     * @param $sale
+     * @param $sendInviteSwitchPlanRequest
      *
-     * @return null
+     * @return SendInviteSwitchPlanResponse
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($sendInviteSwitchPlanRequest)
     {
         $url = $this->environment->getApiUrl() . 'switchPlan/rest/v2/sendInvite';
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'POST', $sendInviteSwitchPlanRequest);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return SendInviteSwitchPlanResponse
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return SendInviteSwitchPlanResponse::fromJson($json);
     }
    
 }

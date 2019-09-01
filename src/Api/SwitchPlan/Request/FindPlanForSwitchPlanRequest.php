@@ -5,6 +5,8 @@ namespace Hotmart\Api\SwitchPlan\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\Subscription\Subscription;
 /**
  * Class FindPlanForSwitchPlanRequest
  *
@@ -29,27 +31,27 @@ class FindPlanForSwitchPlanRequest extends AbstractRequest
     }
 
     /**
-     * @param $sale
+     * @param $switchPlanPlansRequest
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($switchPlanPlansRequest)
     {
         $url = $this->environment->getApiUrl() . 'switchPlan/rest/v2/plans';
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'POST', $switchPlanPlansRequest);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return Subscription
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return Subscription::fromJson($json);
     }
    
 }
