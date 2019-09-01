@@ -50,6 +50,9 @@ class GetHotlinksRequest extends AbstractRequest
      */
     protected function unserialize($json)
     {
+        $json_decoded = json_decode($json);
+        $json_decoded = isset($json_decoded->body) ? $json_decoded->body : $json_decoded;
+        $json = json_encode($json_decoded);
         return ResultData::fromJson($json);
     }
    
