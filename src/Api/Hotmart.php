@@ -53,10 +53,10 @@ class Hotmart
         $this->hotconnect = $hotConnect;
     }
 
-    public function createListOfAffiliation($auth)
+    public function createListOfAffiliation($affiliationListRequestVO)
     {
         $createListOfAffiliationRequest = new CreateListOfAffiliationRequest($this->hotconnect, $this->environment);
-        return $createListOfAffiliationRequest->execute($auth);
+        return $createListOfAffiliationRequest->execute($affiliationListRequestVO);
     }
 
     public function getHotlinks()

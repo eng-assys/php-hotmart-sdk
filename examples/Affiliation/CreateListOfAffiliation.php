@@ -7,15 +7,19 @@ use Hotmart\Api\Environment;
 use Hotmart\Api\Hotmart;
 use Hotmart\HotConnect;
 
+use Hotmart\Api\Affiliation\AffiliationListRequestVO;
+
 $environment = Environment::production();
 
 $hotconnect = new HotConnect($envToken);
 
+$affiliationListRequestVO = new AffiliationListRequestVO();
+
 try {
     // Get The AccessToken to use HotConnect
-    $hotlinks = (new Hotmart($environment, $hotconnect))->createListOfAffiliation($param);
+    $affiliationCreationResponseVO = (new Hotmart($environment, $hotconnect))->createListOfAffiliation($affiliationListRequestVO);
 
-    print_r($hotlinks->jsonSerialize());
+    print_r($affiliationCreationResponseVO->jsonSerialize());
 } catch (HotmartRequestException $e) {
     print_r($e);
 }

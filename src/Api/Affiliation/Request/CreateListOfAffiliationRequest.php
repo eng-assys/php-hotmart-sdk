@@ -6,6 +6,8 @@ use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
+use Hotmart\Api\Affiliation\AffiliationCreationResponseVO;
+
 /**
  * Class CreateListOfAffiliationRequest
  *
@@ -30,27 +32,27 @@ class CreateListOfAffiliationRequest extends AbstractRequest
     }
 
     /**
-     * @param $sale
+     * @param $affiliationListRequestVO
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($affiliationListRequestVO)
     {
         $url = $this->environment->getApiUrl() . '/affiliation/rest/v2/list';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->sendRequest('POST', $url, $affiliationListRequestVO);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return AffiliationCreationResponseVO
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return AffiliationCreationResponseVO::fromJson($json);
     }
    
 }
