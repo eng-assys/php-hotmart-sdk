@@ -13,9 +13,9 @@ $hotconnect = new HotConnect($envToken);
 
 try {
     // Get The AccessToken to use HotConnect
-    $hotlinks = (new Hotmart($environment, $hotconnect))->cancelSubscription($param);
+    $cancelSubscription = (new Hotmart($environment, $hotconnect))->cancelSubscription($subscriptionCode);
 
-    print_r($hotlinks->jsonSerialize());
+    print_r($cancelSubscription->jsonSerialize());
 } catch (HotmartRequestException $e) {
     print_r($e);
 }

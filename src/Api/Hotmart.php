@@ -115,10 +115,10 @@ class Hotmart
     }
 
 
-    public function cancelSubscription($auth)
+    public function cancelSubscription($subscriptionCode)
     {
-        $cancelSubscriptionRequest = new CancelSubscriptionRequest($this->hotconnect, $this->environment);
-        return $cancelSubscriptionRequest->execute($auth);
+        $cancelSubscriptionRequest = new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode);
+        return $cancelSubscriptionRequest->execute();
     }
 
     public function getSubscribers($page, $rows)
