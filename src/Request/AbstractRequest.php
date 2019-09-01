@@ -81,7 +81,7 @@ abstract class AbstractRequest {
             $exceptionMessage = $ex->getMessage();
             if(!empty($ex->getResponse())){
                 $jsonBody = $ex->getResponse()->getBody();
-                $statusCode = $ex->getResponse()->getBody();
+                $statusCode = $ex->getResponse()->getStatusCode();
             }
             else{
                 $jsonBody = null;
