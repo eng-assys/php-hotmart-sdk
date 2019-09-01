@@ -29,27 +29,27 @@ class CreateUserRequest extends AbstractRequest
     }
 
     /**
-     * @param $sale
+     * @param $userRequestVO
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sale)
+    public function execute($userRequestVO)
     {
-        $url = $this->environment->getApiUrl() . '1/sales/';
+        $url = "{$this->environment->getApiUrl()}user/rest/v2/signup";
 
-        return $this->send($url, 'POST', $sale);
+        return $this->send($url, 'POST', $userRequestVO);
     }
 
     /**
      * @param $json
      *
-     * @return Sale
+     * @return null
      */
     protected function unserialize($json)
     {
-        return Sale::fromJson($json);
+        return null;
     }
    
 }

@@ -141,22 +141,22 @@ class Hotmart
     }
 
 
-    public function createUser($auth)
+    public function createUser($userRequestVO)
     {
         $createUserRequest = new CreateUserRequest($this->hotconnect, $this->environment);
-        return $createUserRequest->execute($auth);
+        return $createUserRequest->execute($userRequestVO);
     }
 
-    public function getLoggedUser($auth)
+    public function getLoggedUser()
     {
         $getLoggedUserRequest = new GetLoggedUserRequest($this->hotconnect, $this->environment);
-        return $getLoggedUserRequest->execute($auth);
+        return $getLoggedUserRequest->execute();
     }
 
-    public function getUserRequest ($auth)
+    public function getUser ($id, $ucode)
     {
-        $getUserRequest = new GetUserRequest($this->hotconnect, $this->environment);
-        return $getUserRequest->execute($auth);
+        $getUserRequest = new GetUserRequest($this->hotconnect, $this->environment, $id, $ucode);
+        return $getUserRequest->execute();
     }
 
     
