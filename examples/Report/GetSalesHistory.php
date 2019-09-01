@@ -13,7 +13,7 @@ $hotconnect = new HotConnect($envToken);
 
 try {
     // Get The AccessToken to use HotConnect
-    $getSalesHistory = (new Hotmart($environment, $hotconnect))->getSalesHistory($salesHistoryRequest);
+    $getSalesHistory = (new Hotmart($environment, $hotconnect))->getSalesHistory($salesHistoryQuery);
 
     print_r($getSalesHistory->jsonSerialize());
 } catch (HotmartRequestException $e) {

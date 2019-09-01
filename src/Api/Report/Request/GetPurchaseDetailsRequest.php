@@ -30,17 +30,17 @@ class GetPurchaseDetailsRequest extends AbstractRequest
     }
 
     /**
-     * @param $purchaseDetailsRequest
+     * @param $purchaseDetailsQuery
      *
      * @return ResultData<SubscriptionResponseVO>
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($purchaseDetailsRequest)
+    public function execute($purchaseDetailsQuery)
     {
         $url = $this->environment->getApiUrl() . 'reports/rest/v2/purchaseDetails';
 
-        return $this->send($url, 'POST', $purchaseDetailsRequest);
+        return $this->send($url, 'POST', $purchaseDetailsQuery);
     }
 
     /**

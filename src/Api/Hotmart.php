@@ -102,16 +102,16 @@ class Hotmart
         return $updateProductRequest->execute($productInfoRequestVO);
     }
 
-    public function getPurchaseDetails($purchaseDetailsRequest)
+    public function getPurchaseDetails($purchaseDetailsQuery)
     {
         $getPurchaseDetailsRequest = new GetPurchaseDetailsRequest($this->hotconnect, $this->environment);
-        return $getPurchaseDetailsRequest->execute($purchaseDetailsRequest);
+        return $getPurchaseDetailsRequest->execute($purchaseDetailsQuery);
     }
 
-    public function getSalesHistory($salesHistoryRequest)
+    public function getSalesHistory($salesHistoryQuery)
     {
         $getSalesHistoryRequest = new GetSalesHistoryRequest($this->hotconnect, $this->environment);
-        return $getSalesHistoryRequest->execute($salesHistoryRequest);
+        return $getSalesHistoryRequest->execute($salesHistoryQuery);
     }
 
 

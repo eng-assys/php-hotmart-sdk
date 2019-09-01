@@ -30,17 +30,17 @@ class GetSalesHistoryRequest extends AbstractRequest
     }
 
     /**
-     * @param $salesHistoryRequest
+     * @param $salesHistoryQuery
      *
      * @return SalesHistoryResponse
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($salesHistoryRequest)
+    public function execute($salesHistoryQuery)
     {
         $url = $this->environment->getApiUrl() . 'reports/rest/v2/history';
 
-        return $this->send($url, 'POST', $salesHistoryRequest);
+        return $this->send($url, 'POST', $salesHistoryQuery);
     }
 
     /**

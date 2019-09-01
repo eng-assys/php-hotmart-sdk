@@ -13,7 +13,7 @@ $hotconnect = new HotConnect($envToken);
 
 try {
     // Get The AccessToken to use HotConnect
-    $getPurchaseDetails = (new Hotmart($environment, $hotconnect))->getPurchaseDetails($purchaseDetailsRequest);
+    $getPurchaseDetails = (new Hotmart($environment, $hotconnect))->getPurchaseDetails($purchaseDetailsQuery);
 
     print_r($getPurchaseDetails->jsonSerialize());
 } catch (HotmartRequestException $e) {
