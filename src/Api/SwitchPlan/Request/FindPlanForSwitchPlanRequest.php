@@ -39,7 +39,7 @@ class FindPlanForSwitchPlanRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'switchPlan/rest/v2/plans';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

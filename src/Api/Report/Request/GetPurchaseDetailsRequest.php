@@ -38,7 +38,7 @@ class GetPurchaseDetailsRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'reports/rest/v2/purchaseDetails';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

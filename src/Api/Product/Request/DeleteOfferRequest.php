@@ -47,7 +47,7 @@ class DeleteOfferRequest extends AbstractRequest
     {
         $url = "{$this->environment->getApiUrl()}product/rest/v2/{$this->productId}/offer/{$this->offerId}";
 
-        return $this->sendRequest('DELETE', $url);
+        return $this->send($url, 'DELETE');
     }
 
     /**

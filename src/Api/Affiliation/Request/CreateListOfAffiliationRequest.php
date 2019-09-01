@@ -42,7 +42,7 @@ class CreateListOfAffiliationRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . '/affiliation/rest/v2/list';
 
-        return $this->sendRequest('POST', $url, $affiliationListRequestVO);
+        return $this->send($url, 'POST', $affiliationListRequestVO);
     }
 
     /**

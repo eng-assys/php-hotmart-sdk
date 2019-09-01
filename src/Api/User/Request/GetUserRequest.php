@@ -39,7 +39,7 @@ class GetUserRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'user/rest/v2/signup';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

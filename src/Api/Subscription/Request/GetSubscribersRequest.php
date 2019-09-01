@@ -39,7 +39,7 @@ class GetSubscribersRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'subscriber/rest/v2';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

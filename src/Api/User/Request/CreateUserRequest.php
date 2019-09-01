@@ -39,7 +39,7 @@ class CreateUserRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . '1/sales/';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

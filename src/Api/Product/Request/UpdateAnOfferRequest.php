@@ -38,7 +38,7 @@ class UpdateAnOfferRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'product/rest/v2/{productId}/offer/{offerId}';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

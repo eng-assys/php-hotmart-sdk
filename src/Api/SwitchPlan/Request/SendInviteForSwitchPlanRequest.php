@@ -39,7 +39,7 @@ class SendInviteForSwitchPlanRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'switchPlan/rest/v2/sendInvite';
 
-        return $this->sendRequest('POST', $url, $sale);
+        return $this->send($url, 'POST', $sale);
     }
 
     /**

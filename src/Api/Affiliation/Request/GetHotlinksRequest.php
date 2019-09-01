@@ -40,7 +40,7 @@ class GetHotlinksRequest extends AbstractRequest
     {
         $url = $this->environment->getApiUrl() . 'affiliation/rest/v2/';
 
-        return $this->sendRequest('GET', $url);
+        return $this->send($url, 'GET');
     }
 
     /**
