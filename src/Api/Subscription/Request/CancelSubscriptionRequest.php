@@ -41,8 +41,7 @@ class CancelSubscriptionRequest extends AbstractRequest
      */
     public function execute($param=null)
     {
-        $url = "{$this->environment->getApiUrl()}'subscription/rest/v2/{$this->subscriptionCode}/cancel";
-
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel";
         return $this->send($url, 'PUT');
     }
 
