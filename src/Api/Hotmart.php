@@ -11,6 +11,7 @@ use Hotmart\Api\Affiliation\Request\GetHotlinksRequest;
 use Hotmart\Api\Product\Request\AddAnOfferRequest;
 use Hotmart\Api\Product\Request\DeleteOfferRequest;
 use Hotmart\Api\Product\Request\GetOffersOfProductRequest;
+use Hotmart\Api\Product\Request\GetAllProductsRequest;
 use Hotmart\Api\Product\Request\GetProductRequest;
 use Hotmart\Api\Product\Request\UpdateAnOfferRequest;
 use Hotmart\Api\Product\Request\UpdateProductRequest;
@@ -29,7 +30,7 @@ use Hotmart\Api\User\Request\GetUserRequest;
  */
 class Hotmart
 {
-    
+
     private $environment;
 
     private $hotconnect;
@@ -88,6 +89,25 @@ class Hotmart
     {
         $getProduct = new GetProductRequest($this->hotconnect, $this->environment, $productId);
         return $getProduct->execute();
+    }
+
+    public function getAllProducts(
+        $name = null,
+        $categoryId = null,
+        $subcategoryId = null,
+        $page = null,
+        $rows = null
+    ) {
+        $getAllProducts = new GetAllProductsRequest(
+            $this->hotconnect,
+            $this->environment,
+            $name,
+            $categoryId,
+            $subcategoryId,
+            $page,
+            $rows
+        );
+        return $getAllProducts->execute();
     }
 
     public function updateAnOffer($productId, $offerId, $productPaymentRequestVO)
@@ -153,11 +173,9 @@ class Hotmart
         return $getLoggedUserRequest->execute();
     }
 
-    public function getUser ($id, $ucode)
+    public function getUser($id, $ucode)
     {
         $getUserRequest = new GetUserRequest($this->hotconnect, $this->environment, $id, $ucode);
         return $getUserRequest->execute();
     }
-
-    
 }
