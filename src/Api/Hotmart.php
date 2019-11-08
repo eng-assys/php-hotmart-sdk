@@ -12,6 +12,8 @@ use Hotmart\Api\Product\Request\AddAnOfferRequest;
 use Hotmart\Api\Product\Request\DeleteOfferRequest;
 use Hotmart\Api\Product\Request\GetOffersOfProductRequest;
 use Hotmart\Api\Product\Request\GetAllProductsRequest;
+use Hotmart\Api\Product\Request\GetAllCategoriesRequest;
+use Hotmart\Api\Product\Request\GetAllSubCategoriesRequest;
 use Hotmart\Api\Product\Request\GetProductRequest;
 use Hotmart\Api\Product\Request\UpdateAnOfferRequest;
 use Hotmart\Api\Product\Request\UpdateProductRequest;
@@ -108,6 +110,16 @@ class Hotmart
             $rows
         );
         return $getAllProducts->execute();
+    }
+
+    public function getAllCategories()
+    {
+        return (new GetAllCategoriesRequest($this->hotconnect, $this->environment))->execute();
+    }
+
+    public function getAllSubCategories()
+    {
+        return (new GetAllSubCategoriesRequest($this->hotconnect, $this->environment))->execute();
     }
 
     public function updateAnOffer($productId, $offerId, $productPaymentRequestVO)
