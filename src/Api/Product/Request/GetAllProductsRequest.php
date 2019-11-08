@@ -7,7 +7,7 @@ use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Product\ProductDetailedResponseVO;
+use Hotmart\Api\Product\ProductAffiliationResponseVO;
 
 /**
  * Class GetAllProductsRequest
@@ -65,10 +65,10 @@ class GetAllProductsRequest extends AbstractRequest
     /**
      * @param $json
      *
-     * @return ProductDetailedResponseVO
+     * @return ResultData<ProductAffiliationResponseVO>
      */
     protected function unserialize($json)
     {
-        return ProductDetailedResponseVO::fromJson($json);
+        return ResultData::fromJson($json);
     }
 }
