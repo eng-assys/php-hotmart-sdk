@@ -21,6 +21,7 @@ use Hotmart\Api\Report\Request\GetPurchaseDetailsRequest;
 use Hotmart\Api\Report\Request\GetSalesHistoryRequest;
 use Hotmart\Api\Subscription\Request\CancelSubscriptionRequest;
 use Hotmart\Api\Subscription\Request\GetSubscribersRequest;
+use Hotmart\Api\Subscription\Request\GetSubscriptionPurchasesRequest;
 use Hotmart\Api\SwitchPlan\Request\FindPlanForSwitchPlanRequest;
 use Hotmart\Api\SwitchPlan\Request\SendInviteForSwitchPlanRequest;
 use Hotmart\Api\User\Request\CreateUserRequest;
@@ -159,6 +160,10 @@ class Hotmart
         return $getSubscribersRequest->execute();
     }
 
+    public function getSubscriptionPurchasesRequest($subscriptionCode)
+    {
+        return (new GetSubscriptionPurchasesRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+    }
 
     public function findPlanForSwitchPlan($switchPlanPlansRequest)
     {

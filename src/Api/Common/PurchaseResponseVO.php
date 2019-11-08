@@ -1,6 +1,6 @@
 <?php
 
-namespace Hotmart\Api\Report;
+namespace Hotmart\Api\Common;
 
 use Hotmart\Api\HotmartSerializable;
 
