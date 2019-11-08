@@ -1,5 +1,5 @@
 {
-    "name": "gerenciagram/php-hotmart-sdk",
+    "name": "eng_assys/php-hotmart-sdk",
     "description": "SDK em PHP para Integração com API do Hotmart",
     "autoload": {
         "psr-4": {
