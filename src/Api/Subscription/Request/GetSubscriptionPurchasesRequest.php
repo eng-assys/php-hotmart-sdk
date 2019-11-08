@@ -12,16 +12,14 @@ use Hotmart\Api\Common\PurchaseResponseVO;
 /**
  * Class GetSubscriptionPurchasesRequest
  *
+ * Get subscription list of purchases
+ * 
  * @package Hotmart\Api\Request\Subscription
  */
 class GetSubscriptionPurchasesRequest extends AbstractRequest
 {
 
     private $environment;
-
-    private $page;
-
-    private $rows;
 
     /**
      * GetSubscriptionPurchasesRequest constructor.
