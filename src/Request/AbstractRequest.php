@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Hotmart\Request;
 
@@ -7,9 +7,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
+use RequestHelper;
+
 use Hotmart\HotConnect;
 
-abstract class AbstractRequest {
+abstract class AbstractRequest
+{
 
     private $hotconnect;
 
@@ -21,20 +24,6 @@ abstract class AbstractRequest {
     public function __construct(HotConnect $hotconnect = null)
     {
         $this->hotconnect = $hotconnect;
-    }
-
-    private function removeEmptyKeys($data)
-    {
-        $data = !is_array($data) ? json_decode($data, true) : $data;
-        if (!$data) return [];
-        foreach ($data as $key => $value) {
-            if (is_array($data[$key])) {
-                $data[$key] = $this->removeEmptyKeys($data[$key]);
-            } else if ($value == null) {
-                unset($data[$key]);
-            }
-        }
-        return $data;
     }
 
     /**
@@ -53,7 +42,7 @@ abstract class AbstractRequest {
      */
     public function send($url, $method, \JsonSerializable $body = null, $headers = [], $options = [], $auth = [], $formParams = [])
     {
-        if(isset($this->hotconnect) && empty($headers)){
+        if (isset($this->hotconnect) && empty($headers)) {
             $headers = [
                 'Accept: application/json',
                 'Accept-Encoding: gzip',
@@ -62,8 +51,8 @@ abstract class AbstractRequest {
                 'RequestId: ' . uniqid()
             ];
         }
-        
-        $request_params = $this->removeEmptyKeys([
+
+        $request_params = RequestHelper::removeEmptyKeys([
             'headers' => $headers,
             'json' => $body,
             'auth' => $auth,
@@ -73,24 +62,22 @@ abstract class AbstractRequest {
         $guzzle_client = new GuzzleClient($options);
         $exceptionMessage = null;
 
-        try{
+        try {
             $callback = $guzzle_client->request($method, $url, $request_params);
             $jsonBody = $callback->getBody();
             $statusCode = $callback->getStatusCode();
         } catch (ConnectException | ClientException | ServerException $ex) {
             $exceptionMessage = $ex->getMessage();
-            if(!empty($ex->getResponse())){
+            if (!empty($ex->getResponse())) {
                 $jsonBody = $ex->getResponse()->getBody();
                 $statusCode = $ex->getResponse()->getStatusCode();
-            }
-            else{
+            } else {
                 $jsonBody = null;
                 $statusCode = null;
-            } 
+            }
         }
 
         return $this->readResponse($statusCode, $jsonBody, $exceptionMessage);
-
     }
 
     /**
@@ -102,7 +89,7 @@ abstract class AbstractRequest {
      *
      * @throws Hotmart
      */
-    protected function readResponse($statusCode, $responseBody, $responseMessage=null)
+    protected function readResponse($statusCode, $responseBody, $responseMessage = null)
     {
         $unserialized = null;
 
@@ -144,5 +131,4 @@ abstract class AbstractRequest {
      * @return mixed
      */
     protected abstract function unserialize($json);
-
 }
