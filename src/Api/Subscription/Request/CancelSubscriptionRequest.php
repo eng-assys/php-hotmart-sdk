@@ -3,6 +3,7 @@
 namespace Hotmart\Api\Subscription\Request;
 
 use Hotmart\Request\AbstractRequest;
+use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 /**
@@ -39,9 +40,15 @@ class CancelSubscriptionRequest extends AbstractRequest
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($param=null)
+    public function execute($sendMail=null)
     {
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel";
+        $queryParams = [
+            'sendMail' => $sendMail
+        ];
+
+        $queryParams = RequestHelper::generateUrlQueryString($queryParams);
+
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel{$queryParams}";
         return $this->send($url, 'PUT');
     }
 
