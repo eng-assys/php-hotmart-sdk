@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
-use RequestHelper;
+use Hotmart\Request\RequestHelper;
 
 use Hotmart\HotConnect;
 

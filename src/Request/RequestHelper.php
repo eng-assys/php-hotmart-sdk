@@ -1,5 +1,7 @@
 <?php
 
+namespace Hotmart\Request;
+
 class RequestHelper 
 {
     /**
