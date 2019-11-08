@@ -36,6 +36,7 @@ class RequestHelper
      */
     public static function generateUrlQueryString($queryParams)
     {
+        $queryParams = self::removeEmptyKeys($queryParams);
         $queryString = '';
         foreach ($queryParams as $key => $queryParam) {
             if (!empty($queryParam)) {
