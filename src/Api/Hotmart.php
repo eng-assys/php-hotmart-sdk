@@ -59,39 +59,33 @@ class Hotmart
 
     public function createListOfAffiliation($affiliationListRequestVO)
     {
-        $createListOfAffiliationRequest = new CreateListOfAffiliationRequest($this->hotconnect, $this->environment);
-        return $createListOfAffiliationRequest->execute($affiliationListRequestVO);
+        return (new CreateListOfAffiliationRequest($this->hotconnect, $this->environment))->execute($affiliationListRequestVO);
     }
 
     public function getHotlinks()
     {
-        $getHotlinksRequest = new GetHotlinksRequest($this->hotconnect, $this->environment);
-        return $getHotlinksRequest->execute();
+        return (new GetHotlinksRequest($this->hotconnect, $this->environment))->execute();
     }
 
 
     public function addAnOffer($productId, $productPaymentRequestVO)
     {
-        $addAnOfferRequest = new AddAnOfferRequest($this->hotconnect, $this->environment, $productId);
-        return $addAnOfferRequest->execute($productPaymentRequestVO);
+        return (new AddAnOfferRequest($this->hotconnect, $this->environment, $productId))->execute($productPaymentRequestVO);
     }
 
     public function deleteOffer($productId, $offerId)
     {
-        $deleteOfferRequest = new DeleteOfferRequest($this->hotconnect, $this->environment, $productId, $offerId);
-        return $deleteOfferRequest->execute();
+        return (new DeleteOfferRequest($this->hotconnect, $this->environment, $productId, $offerId))->execute();
     }
 
     public function getOffersOfProduct($productId)
     {
-        $getOffersOfProductRequest = new GetOffersOfProductRequest($this->hotconnect, $this->environment, $productId);
-        return $getOffersOfProductRequest->execute();
+        return (new GetOffersOfProductRequest($this->hotconnect, $this->environment, $productId))->execute();
     }
 
     public function getProduct($productId)
     {
-        $getProduct = new GetProductRequest($this->hotconnect, $this->environment, $productId);
-        return $getProduct->execute();
+        return (new GetProductRequest($this->hotconnect, $this->environment, $productId))->execute();
     }
 
     public function getAllProducts(
@@ -125,39 +119,33 @@ class Hotmart
 
     public function updateAnOffer($productId, $offerId, $productPaymentRequestVO)
     {
-        $updateAnOfferRequest = new UpdateAnOfferRequest($this->hotconnect, $this->environment, $productId, $offerId);
-        return $updateAnOfferRequest->execute($productPaymentRequestVO);
+        return (new UpdateAnOfferRequest($this->hotconnect, $this->environment, $productId, $offerId))->execute($productPaymentRequestVO);
     }
 
     public function updateProduct($productId, $productInfoRequestVO)
     {
-        $updateProductRequest = new UpdateProductRequest($this->hotconnect, $this->environment, $productId);
-        return $updateProductRequest->execute($productInfoRequestVO);
+        return (new UpdateProductRequest($this->hotconnect, $this->environment, $productId))->execute($productInfoRequestVO);
     }
 
     public function getPurchaseDetails($purchaseDetailsQuery)
     {
-        $getPurchaseDetailsRequest = new GetPurchaseDetailsRequest($this->hotconnect, $this->environment);
-        return $getPurchaseDetailsRequest->execute($purchaseDetailsQuery);
+        return (new GetPurchaseDetailsRequest($this->hotconnect, $this->environment))->execute($purchaseDetailsQuery);
     }
 
     public function getSalesHistory($salesHistoryQuery)
     {
-        $getSalesHistoryRequest = new GetSalesHistoryRequest($this->hotconnect, $this->environment);
-        return $getSalesHistoryRequest->execute($salesHistoryQuery);
+        return (new GetSalesHistoryRequest($this->hotconnect, $this->environment))->execute($salesHistoryQuery);
     }
 
 
     public function cancelSubscription($subscriptionCode)
     {
-        $cancelSubscriptionRequest = new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode);
-        return $cancelSubscriptionRequest->execute();
+        return (new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
     public function getSubscribers($page, $rows)
     {
-        $getSubscribersRequest = new GetSubscribersRequest($this->hotconnect, $this->environment, $page, $rows);
-        return $getSubscribersRequest->execute();
+        return (new GetSubscribersRequest($this->hotconnect, $this->environment, $page, $rows))->execute();
     }
 
     public function getSubscriptionPurchasesRequest($subscriptionCode)
@@ -167,32 +155,27 @@ class Hotmart
 
     public function findPlanForSwitchPlan($switchPlanPlansRequest)
     {
-        $findPlanForSwitchPlanRequest = new FindPlanForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $findPlanForSwitchPlanRequest->execute($switchPlanPlansRequest);
+        return (new FindPlanForSwitchPlanRequest($this->hotconnect, $this->environment))->execute($switchPlanPlansRequest);
     }
 
     public function sendInviteForSwitchPlan($sendInviteSwitchPlanRequest)
     {
-        $sendInviteForSwitchPlanRequest = new SendInviteForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $sendInviteForSwitchPlanRequest->execute($sendInviteSwitchPlanRequest);
+        return (new SendInviteForSwitchPlanRequest($this->hotconnect, $this->environment))->execute($sendInviteSwitchPlanRequest);
     }
 
 
     public function createUser($userRequestVO)
     {
-        $createUserRequest = new CreateUserRequest($this->hotconnect, $this->environment);
-        return $createUserRequest->execute($userRequestVO);
+        return (new CreateUserRequest($this->hotconnect, $this->environment))->execute($userRequestVO);
     }
 
     public function getLoggedUser()
     {
-        $getLoggedUserRequest = new GetLoggedUserRequest($this->hotconnect, $this->environment);
-        return $getLoggedUserRequest->execute();
+        return (new GetLoggedUserRequest($this->hotconnect, $this->environment))->execute();
     }
 
     public function getUser($id, $ucode)
     {
-        $getUserRequest = new GetUserRequest($this->hotconnect, $this->environment, $id, $ucode);
-        return $getUserRequest->execute();
+        return (new GetUserRequest($this->hotconnect, $this->environment, $id, $ucode))->execute();
     }
 }
