@@ -11,6 +11,11 @@ use Hotmart\Api\Affiliation\AffiliationCreationResponseVO;
 /**
  * Class CreateListOfAffiliationRequest
  *
+ * Create affiliations for a list of given products.
+ * If the product has open affiliation, it's created.
+ * If the product has an affiliation program which needs approval, a request will be created.
+ * If the product doesn't allow affiliation, an error will be occur.
+ * 
  * @package Hotmart\Api\Request\Affiliation
  */
 class CreateListOfAffiliationRequest extends AbstractRequest

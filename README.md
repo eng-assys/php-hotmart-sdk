@@ -2,17 +2,37 @@
 
 A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 
-# Supported Requests
+## Running Tests
 
-## BASE URL:
+This project is embeded with PhpUnit Test Library. 
+
+To execute all test, you can use the following command:
+
+``` bash
+
+vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/
+
+```
+
+To execute a specific test, you can use the following command:
+
+``` bash
+
+vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/RequestHelperUnitTest
+
+```
+
+## Supported Requests
+
+### BASE URL:
 * Production: https://api-hot-connect.hotmart.com
 * Sandbox: N/A
 
-## AUTH URL:
+### AUTH URL:
 * Production: https://api-sec-vlc.hotmart.com
 * Sandbox: N/A
 
-## Authentication
+### Authentication
 * Get Access Token
 
 | Field | Value |
@@ -25,7 +45,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | BODY    | X |
 | RESPONSE  **HTTP200**  | ``` { "access_token": "36d73dc7-4f7d-4ed5-9520-b48e26d1a88d", "token_type": "bearer", "expires_in": 172799, "scope": "read write" }```|
 
-## Affiliation
+### Affiliation
 * Get Hotlinks
 
 | Field | Value |
@@ -52,7 +72,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | BODY    | AffiliationListRequestVO (**Required**) |
 | RESPONSE **HTTP200**    | AffiliationCreationResponseVO - 200 OK Success |
 
-## Product
+### Product
 * Delete Offer
 
 | Field | Value |
@@ -125,7 +145,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | BODY    |  |
 | RESPONSE    |  |
 
-## Report
+### Report
 * Get Sales History
 
 | Field | Value |
@@ -150,7 +170,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | BODY    |  |
 | RESPONSE    |  |
 
-## Subscription
+### Subscription
 * Get Subscribers
 
 | Field | Value |
@@ -175,7 +195,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | BODY    |  |
 | RESPONSE    |  |
 
-## User
+### User
 * Get User
 
 | Field | Value |
@@ -212,7 +232,7 @@ A PHP SDK to Use Hotmart API (Hotmart's API does not support Sandbox Mode yet).
 | BODY    |  |
 | RESPONSE    |  |
 
-## Switch Plan
+### Switch Plan
 * Find Plans for Switch Plan
 
 | Field | Value |

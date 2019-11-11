@@ -3,19 +3,20 @@
 namespace Hotmart\Api\Subscription\Request;
 
 use Hotmart\Request\AbstractRequest;
-use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
 use Hotmart\Api\Subscription\SubscriptionStatusResponseVO;
+
+
 /**
- * Class CancelSubscriptionRequest
- * 
- * Cancel subscription of the given code
+ * Class ReactivateAndChargeAnInactiveSubscriptionRequest
  *
+ * Reactivate an inactive subscription using subscription code as reference and apply a new charge
+ * 
  * @package Hotmart\Api\Request\Subscription
  */
-class CancelSubscriptionRequest extends AbstractRequest
+class ReactivateAndChargeAnInactiveSubscriptionRequest extends AbstractRequest
 {
 
     private $environment;
@@ -23,7 +24,7 @@ class CancelSubscriptionRequest extends AbstractRequest
     private $subscriptionCode;
 
     /**
-     * CancelSubscriptionRequest constructor.
+     * ReactivateAndChargeAnInactiveSubscriptionRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
@@ -38,19 +39,16 @@ class CancelSubscriptionRequest extends AbstractRequest
     }
 
     /**
-     * @param null
+     * @param ResultData<PurchaseResponseVO>
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sendMail=null)
+    public function execute($param = null)
     {
-        $queryParams = RequestHelper::generateUrlQueryString([
-            'sendMail' => $sendMail
-        ]);
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/reactivateAndCharge";
 
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel$queryParams";
         return $this->send($url, 'PUT');
     }
 

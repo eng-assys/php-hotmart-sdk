@@ -3,19 +3,20 @@
 namespace Hotmart\Api\Subscription\Request;
 
 use Hotmart\Request\AbstractRequest;
-use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Subscription\SubscriptionStatusResponseVO;
+use Hotmart\Api\Common\PurchaseResponseVO;
+
+
 /**
- * Class CancelSubscriptionRequest
- * 
- * Cancel subscription of the given code
+ * Class GetSubscriptionPurchasesRequest
  *
+ * Get subscription list of purchases
+ * 
  * @package Hotmart\Api\Request\Subscription
  */
-class CancelSubscriptionRequest extends AbstractRequest
+class GetSubscriptionPurchasesRequest extends AbstractRequest
 {
 
     private $environment;
@@ -23,7 +24,7 @@ class CancelSubscriptionRequest extends AbstractRequest
     private $subscriptionCode;
 
     /**
-     * CancelSubscriptionRequest constructor.
+     * GetSubscriptionPurchasesRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
@@ -38,30 +39,27 @@ class CancelSubscriptionRequest extends AbstractRequest
     }
 
     /**
-     * @param null
+     * @param ResultData<PurchaseResponseVO>
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sendMail=null)
+    public function execute($param=null)
     {
-        $queryParams = RequestHelper::generateUrlQueryString([
-            'sendMail' => $sendMail
-        ]);
+        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2/{$this->subscriptionCode}/purchases";
 
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel$queryParams";
-        return $this->send($url, 'PUT');
+        return $this->send($url, 'GET');
     }
 
     /**
      * @param $json
      *
-     * @return SubscriptionStatusResponseVO
+     * @return PurchaseResponseVO
      */
     protected function unserialize($json)
     {
-        return SubscriptionStatusResponseVO::fromJson($json);
+        return PurchaseResponseVO::fromJson($json);
     }
    
 }

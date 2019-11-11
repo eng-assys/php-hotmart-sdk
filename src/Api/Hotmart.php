@@ -6,30 +6,54 @@ use Hotmart\HotConnect;
 
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Affiliation\Request\CreateListOfAffiliationRequest;
+// Affiliation Endpoints
 use Hotmart\Api\Affiliation\Request\GetHotlinksRequest;
-use Hotmart\Api\Product\Request\AddAnOfferRequest;
+use Hotmart\Api\Affiliation\Request\CreateListOfAffiliationRequest;
+
+// Product Endpoints
 use Hotmart\Api\Product\Request\DeleteOfferRequest;
 use Hotmart\Api\Product\Request\GetOffersOfProductRequest;
+use Hotmart\Api\Product\Request\GetAllProductsRequest;
 use Hotmart\Api\Product\Request\GetProductRequest;
-use Hotmart\Api\Product\Request\UpdateAnOfferRequest;
+use Hotmart\Api\Product\Request\GetAllCategoriesRequest;
+use Hotmart\Api\Product\Request\GetAllSubCategoriesRequest;
+use Hotmart\Api\Product\Request\AddAnOfferRequest;
 use Hotmart\Api\Product\Request\UpdateProductRequest;
-use Hotmart\Api\Report\Request\GetPurchaseDetailsRequest;
+use Hotmart\Api\Product\Request\UpdateAnOfferRequest;
+
+// Report Endpoints
 use Hotmart\Api\Report\Request\GetSalesHistoryRequest;
-use Hotmart\Api\Subscription\Request\CancelSubscriptionRequest;
+use Hotmart\Api\Report\Request\GetPurchaseDetailsRequest;
+
+// Subscription Endpoints
 use Hotmart\Api\Subscription\Request\GetSubscribersRequest;
-use Hotmart\Api\SwitchPlan\Request\FindPlanForSwitchPlanRequest;
-use Hotmart\Api\SwitchPlan\Request\SendInviteForSwitchPlanRequest;
-use Hotmart\Api\User\Request\CreateUserRequest;
-use Hotmart\Api\User\Request\GetLoggedUserRequest;
+use Hotmart\Api\Subscription\Request\GetSubscriptionPurchasesRequest;
+use Hotmart\Api\Subscription\Request\CancelAListOfActiveSubscriptionsRequest;
+use Hotmart\Api\Subscription\Request\ReactivateAListOfInactiveSubscriptionsRequest;
+use Hotmart\Api\Subscription\Request\ReactivateAndChargeAListOfInactiveSubscriptionsRequest;
+use Hotmart\Api\Subscription\Request\CancelSubscriptionRequest;
+use Hotmart\Api\Subscription\Request\RefundPaymentOfASubscriptionRequest;
+use Hotmart\Api\Subscription\Request\ExchangeBillingDayOfASubscriptionRequest;
+use Hotmart\Api\Subscription\Request\ReactivateAnInactiveSubscriptionRequest;
+use Hotmart\Api\Subscription\Request\ReactivateAndChargeAnInactiveSubscriptionRequest;
+
+// User Endpoints
 use Hotmart\Api\User\Request\GetUserRequest;
+use Hotmart\Api\User\Request\GetLoggedUserRequest;
+use Hotmart\Api\User\Request\CreateUserRequest;
+
+// Switch Plan Endpoints
+use Hotmart\Api\SwitchPlan\Request\FindPlansForSwitchPlanRequest;
+use Hotmart\Api\SwitchPlan\Request\SendInviteForSwitchPlanRequest;
+use Hotmart\Api\SwitchPlan\Request\AuthorizeSwitchPlanBatchRequest;
+use Hotmart\Api\SwitchPlan\Request\AuthorizeSwitchPlanRequest;
 
 /**
  * The Hotmart API (HOTCONNECT) SDK front-end;
  */
 class Hotmart
 {
-    
+
     private $environment;
 
     private $hotconnect;
@@ -53,111 +77,179 @@ class Hotmart
         $this->hotconnect = $hotConnect;
     }
 
-    public function createListOfAffiliation($affiliationListRequestVO)
-    {
-        $createListOfAffiliationRequest = new CreateListOfAffiliationRequest($this->hotconnect, $this->environment);
-        return $createListOfAffiliationRequest->execute($affiliationListRequestVO);
-    }
+    // Affiliation Endpoints
 
     public function getHotlinks()
     {
-        $getHotlinksRequest = new GetHotlinksRequest($this->hotconnect, $this->environment);
-        return $getHotlinksRequest->execute();
+        return (new GetHotlinksRequest($this->hotconnect, $this->environment))->execute();
     }
 
-
-    public function addAnOffer($productId, $productPaymentRequestVO)
+    public function createListOfAffiliation($affiliationListRequestVO)
     {
-        $addAnOfferRequest = new AddAnOfferRequest($this->hotconnect, $this->environment, $productId);
-        return $addAnOfferRequest->execute($productPaymentRequestVO);
+        return (new CreateListOfAffiliationRequest($this->hotconnect, $this->environment))->execute($affiliationListRequestVO);
     }
+
+    // Product Endpoints
 
     public function deleteOffer($productId, $offerId)
     {
-        $deleteOfferRequest = new DeleteOfferRequest($this->hotconnect, $this->environment, $productId, $offerId);
-        return $deleteOfferRequest->execute();
+        return (new DeleteOfferRequest($this->hotconnect, $this->environment, $productId, $offerId))->execute();
     }
 
     public function getOffersOfProduct($productId)
     {
-        $getOffersOfProductRequest = new GetOffersOfProductRequest($this->hotconnect, $this->environment, $productId);
-        return $getOffersOfProductRequest->execute();
+        return (new GetOffersOfProductRequest($this->hotconnect, $this->environment, $productId))->execute();
+    }
+
+    public function getAllProducts(
+        $name = null,
+        $categoryId = null,
+        $subcategoryId = null,
+        $page = null,
+        $rows = null
+    ) {
+        $getAllProducts = new GetAllProductsRequest(
+            $this->hotconnect,
+            $this->environment,
+            $name,
+            $categoryId,
+            $subcategoryId,
+            $page,
+            $rows
+        );
+        return $getAllProducts->execute();
     }
 
     public function getProduct($productId)
     {
-        $getProduct = new GetProductRequest($this->hotconnect, $this->environment, $productId);
-        return $getProduct->execute();
+        return (new GetProductRequest($this->hotconnect, $this->environment, $productId))->execute();
     }
 
-    public function updateAnOffer($productId, $offerId, $productPaymentRequestVO)
+    public function getAllCategories()
     {
-        $updateAnOfferRequest = new UpdateAnOfferRequest($this->hotconnect, $this->environment, $productId, $offerId);
-        return $updateAnOfferRequest->execute($productPaymentRequestVO);
+        return (new GetAllCategoriesRequest($this->hotconnect, $this->environment))->execute();
+    }
+
+    public function getAllSubCategories()
+    {
+        return (new GetAllSubCategoriesRequest($this->hotconnect, $this->environment))->execute();
+    }
+
+    public function addAnOffer($productId, $productPaymentRequestVO)
+    {
+        return (new AddAnOfferRequest($this->hotconnect, $this->environment, $productId))->execute($productPaymentRequestVO);
     }
 
     public function updateProduct($productId, $productInfoRequestVO)
     {
-        $updateProductRequest = new UpdateProductRequest($this->hotconnect, $this->environment, $productId);
-        return $updateProductRequest->execute($productInfoRequestVO);
+        return (new UpdateProductRequest($this->hotconnect, $this->environment, $productId))->execute($productInfoRequestVO);
+    }
+
+    public function updateAnOffer($productId, $offerId, $productPaymentRequestVO)
+    {
+        return (new UpdateAnOfferRequest($this->hotconnect, $this->environment, $productId, $offerId))->execute($productPaymentRequestVO);
+    }
+
+    // Reports Endpoints
+
+    public function getSalesHistory($salesHistoryQuery)
+    {
+        return (new GetSalesHistoryRequest($this->hotconnect, $this->environment))->execute($salesHistoryQuery);
     }
 
     public function getPurchaseDetails($purchaseDetailsQuery)
     {
-        $getPurchaseDetailsRequest = new GetPurchaseDetailsRequest($this->hotconnect, $this->environment);
-        return $getPurchaseDetailsRequest->execute($purchaseDetailsQuery);
+        return (new GetPurchaseDetailsRequest($this->hotconnect, $this->environment))->execute($purchaseDetailsQuery);
     }
 
-    public function getSalesHistory($salesHistoryQuery)
+    // Subscriptions Endpoints
+
+    public function getSubscribers($getSubscribersRequestQuery)
     {
-        $getSalesHistoryRequest = new GetSalesHistoryRequest($this->hotconnect, $this->environment);
-        return $getSalesHistoryRequest->execute($salesHistoryQuery);
+        return (new GetSubscribersRequest($this->hotconnect, $this->environment))->execute($getSubscribersRequestQuery);
     }
 
-
-    public function cancelSubscription($subscriptionCode)
+    public function getSubscriptionPurchasesRequest($subscriptionCode)
     {
-        $cancelSubscriptionRequest = new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode);
-        return $cancelSubscriptionRequest->execute();
+        return (new GetSubscriptionPurchasesRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
-    public function getSubscribers($page, $rows)
+    public function cancelAListOfActiveSubscriptionsRequest($sendEmail, $subscriptionsArray)
     {
-        $getSubscribersRequest = new GetSubscribersRequest($this->hotconnect, $this->environment, $page, $rows);
-        return $getSubscribersRequest->execute();
+        return (new CancelAListOfActiveSubscriptionsRequest($this->hotconnect, $this->environment, $sendEmail))->execute($subscriptionsArray);
     }
 
-
-    public function findPlanForSwitchPlan($switchPlanPlansRequest)
+    public function reactivateAListOfInactiveSubscriptionsRequest($subscriptionsArray)
     {
-        $findPlanForSwitchPlanRequest = new FindPlanForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $findPlanForSwitchPlanRequest->execute($switchPlanPlansRequest);
+        return (new ReactivateAListOfInactiveSubscriptionsRequest($this->hotconnect, $this->environment))->execute($subscriptionsArray);
     }
 
-    public function sendInviteForSwitchPlan($sendInviteSwitchPlanRequest)
+    public function reactivateAndChargeAListOfInactiveSubscriptionsRequest($subscriptionsArray)
     {
-        $sendInviteForSwitchPlanRequest = new SendInviteForSwitchPlanRequest($this->hotconnect, $this->environment);
-        return $sendInviteForSwitchPlanRequest->execute($sendInviteSwitchPlanRequest);
+        return (new ReactivateAndChargeAListOfInactiveSubscriptionsRequest($this->hotconnect, $this->environment))->execute($subscriptionsArray);
     }
 
-
-    public function createUser($userRequestVO)
+    public function cancelSubscription($subscriptionCode, $sendEmail)
     {
-        $createUserRequest = new CreateUserRequest($this->hotconnect, $this->environment);
-        return $createUserRequest->execute($userRequestVO);
+        return (new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($sendEmail);
+    }
+
+    public function refundPaymentOfASubscriptionRequest($subscriptionCode, $paymentReference)
+    {
+        return (new RefundPaymentOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode, $paymentReference))->execute();
+    }
+
+    public function exchangeBillingDayOfASubscriptionRequest($subscriptionCode, $day)
+    {
+        return (new ExchangeBillingDayOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($day);
+    }
+    
+    public function reactivateAnInactiveSubscriptionRequest($subscriptionCode)
+    {
+        return (new ReactivateAnInactiveSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
+    }
+
+    public function reactivateAndChargeAnInactiveSubscriptionRequest($subscriptionCode)
+    {
+        return (new ReactivateAndChargeAnInactiveSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
+    }
+
+    // Users Endpoints
+
+    public function getUser($id, $ucode)
+    {
+        return (new GetUserRequest($this->hotconnect, $this->environment, $id, $ucode))->execute();
     }
 
     public function getLoggedUser()
     {
-        $getLoggedUserRequest = new GetLoggedUserRequest($this->hotconnect, $this->environment);
-        return $getLoggedUserRequest->execute();
+        return (new GetLoggedUserRequest($this->hotconnect, $this->environment))->execute();
     }
 
-    public function getUser ($id, $ucode)
+    public function createUser($userRequestVO)
     {
-        $getUserRequest = new GetUserRequest($this->hotconnect, $this->environment, $id, $ucode);
-        return $getUserRequest->execute();
+        return (new CreateUserRequest($this->hotconnect, $this->environment))->execute($userRequestVO);
     }
 
-    
+    // Switch Plan Endpoints
+
+    public function findPlanForSwitchPlan($switchPlanPlansRequest)
+    {
+        return (new FindPlansForSwitchPlanRequest($this->hotconnect, $this->environment))->execute($switchPlanPlansRequest);
+    }
+
+    public function sendInviteForSwitchPlan($sendInviteSwitchPlanRequest)
+    {
+        return (new SendInviteForSwitchPlanRequest($this->hotconnect, $this->environment))->execute($sendInviteSwitchPlanRequest);
+    }
+
+    public function authorizeSwitchPlanBatchRequest($switchPlanAuthoriseRequest)
+    {
+        return (new AuthorizeSwitchPlanBatchRequest($this->hotconnect, $this->environment))->execute($switchPlanAuthoriseRequest);
+    }
+
+    public function authorizeSwitchPlanRequest($switchPlanAuthoriseRequest)
+    {
+        return (new authorizeSwitchPlanRequest($this->hotconnect, $this->environment))->execute($switchPlanAuthoriseRequest);
+    }
 }

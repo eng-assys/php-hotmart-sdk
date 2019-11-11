@@ -3,65 +3,67 @@
 namespace Hotmart\Api\Subscription\Request;
 
 use Hotmart\Request\AbstractRequest;
-use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Subscription\SubscriptionStatusResponseVO;
+use Hotmart\Api\Common\PurchaseResponseVO;
+
+
 /**
- * Class CancelSubscriptionRequest
- * 
- * Cancel subscription of the given code
+ * Class RefundPaymentOfASubscriptionRequest
  *
+ * Refund a subscription payment by the given code and payment reference
+ * 
  * @package Hotmart\Api\Request\Subscription
  */
-class CancelSubscriptionRequest extends AbstractRequest
+class RefundPaymentOfASubscriptionRequest extends AbstractRequest
 {
 
     private $environment;
 
     private $subscriptionCode;
 
+    private $paymentReference;
+
     /**
-     * CancelSubscriptionRequest constructor.
+     * RefundPaymentOfASubscriptionRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment, $subscriptionCode)
+    public function __construct(Hotconnect $hotconnect, Environment $environment, $subscriptionCode, $paymentReference)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
 
         $this->subscriptionCode = $subscriptionCode;
+
+        $this->paymentReference = $paymentReference;
     }
 
     /**
-     * @param null
+     * @param $param null
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sendMail=null)
+    public function execute($param = null)
     {
-        $queryParams = RequestHelper::generateUrlQueryString([
-            'sendMail' => $sendMail
-        ]);
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/payment/{$this->paymentReference}/refund";
 
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel$queryParams";
         return $this->send($url, 'PUT');
     }
 
     /**
      * @param $json
      *
-     * @return SubscriptionStatusResponseVO
+     * @return  null
      */
     protected function unserialize($json)
     {
-        return SubscriptionStatusResponseVO::fromJson($json);
+        return null;
     }
    
 }

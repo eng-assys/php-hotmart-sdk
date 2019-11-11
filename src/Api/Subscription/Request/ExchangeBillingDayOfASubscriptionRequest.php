@@ -3,27 +3,26 @@
 namespace Hotmart\Api\Subscription\Request;
 
 use Hotmart\Request\AbstractRequest;
-use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Subscription\SubscriptionStatusResponseVO;
+use Hotmart\Api\Common\PurchaseResponseVO;
+
+
 /**
- * Class CancelSubscriptionRequest
- * 
- * Cancel subscription of the given code
+ * Class ExchangeBillingDayOfASubscriptionRequest
  *
+ * Exchange billing day of a subscription by the given code
+ * 
  * @package Hotmart\Api\Request\Subscription
  */
-class CancelSubscriptionRequest extends AbstractRequest
+class ExchangeBillingDayOfASubscriptionRequest extends AbstractRequest
 {
 
     private $environment;
 
-    private $subscriptionCode;
-
     /**
-     * CancelSubscriptionRequest constructor.
+     * ExchangeBillingDayOfASubscriptionRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
@@ -38,30 +37,27 @@ class CancelSubscriptionRequest extends AbstractRequest
     }
 
     /**
-     * @param null
+     * @param integer $day Billing day between 1 and 28
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($sendMail=null)
+    public function execute($day)
     {
-        $queryParams = RequestHelper::generateUrlQueryString([
-            'sendMail' => $sendMail
-        ]);
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/changePaymentDay/{$day}";
 
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel$queryParams";
         return $this->send($url, 'PUT');
     }
 
     /**
      * @param $json
      *
-     * @return SubscriptionStatusResponseVO
+     * @return null
      */
     protected function unserialize($json)
     {
-        return SubscriptionStatusResponseVO::fromJson($json);
+        return null;
     }
    
 }

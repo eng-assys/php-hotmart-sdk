@@ -1,24 +1,24 @@
 <?php
 
-namespace Hotmart\Api\SwitchPlan\Request;
+namespace Hotmart\Api\Product\Request;
 
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Subscription\Subscription;
-/**
- * Class FindPlanForSwitchPlanRequest
- *
- * @package Hotmart\Api\Request\SwitchPlan
- */
-class FindPlanForSwitchPlanRequest extends AbstractRequest
-{
+use Hotmart\Api\Product\CategoryResponseVO;
 
+/**
+ * Class GetAllCategoriesRequest
+ *
+ * @package Hotmart\Api\Request\Product
+ */
+class GetAllCategoriesRequest extends AbstractRequest
+{
     private $environment;
 
     /**
-     * FindPlanForSwitchPlanRequest constructor.
+     * GetAllCategoriesRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
@@ -31,27 +31,26 @@ class FindPlanForSwitchPlanRequest extends AbstractRequest
     }
 
     /**
-     * @param $switchPlanPlansRequest
      *
      * @return null
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($switchPlanPlansRequest)
+    public function execute($param=null)
     {
-        $url = $this->environment->getApiUrl() . 'switchPlan/rest/v2/plans';
+        $url = "{$this->environment->getApiUrl()}product/rest/v2/category";
 
-        return $this->send($url, 'POST', $switchPlanPlansRequest);
+        return $this->send($url, 'GET');
     }
 
     /**
      * @param $json
      *
-     * @return Subscription
+     * @return CategoryResponseVO
      */
     protected function unserialize($json)
     {
-        return Subscription::fromJson($json);
+        return CategoryResponseVO::fromJson($json);
     }
    
 }
