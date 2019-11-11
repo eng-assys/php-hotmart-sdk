@@ -6,7 +6,7 @@ use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Common\SubscriptionStatusListResponseVO;
+use Hotmart\Api\Subscription\SubscriptionStatusListResponseVO;
 
 
 /**
@@ -53,7 +53,7 @@ class CancelAListOfActiveSubscriptionsRequest extends AbstractRequest
 
         $url = "{$this->environment->getApiUrl()}subscription/rest/v2/cancel/list$queryParams";
 
-        return $this->send($url, 'POST', $this->subscriptionsArray);
+        return $this->send($url, 'POST', $subscriptionsArray);
     }
 
     /**
