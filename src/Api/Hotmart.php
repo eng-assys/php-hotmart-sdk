@@ -201,9 +201,9 @@ class Hotmart
     }
 
     // Not available Yet
-    public function exchangeBillingDayOfASubscriptionRequest($subscriptionCode)
+    public function exchangeBillingDayOfASubscriptionRequest($subscriptionCode, $day)
     {
-        return (new ExchangeBillingDayOfASubscriptionRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+        return (new ExchangeBillingDayOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($day);
     }
 
     // Not available Yet
