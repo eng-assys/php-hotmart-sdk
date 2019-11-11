@@ -10,13 +10,13 @@ use Hotmart\Api\Subscription\SubscriptionStatusResponseVO;
 
 
 /**
- * Class ReactivateAndChargeAnInactiveSubscriptionRequest
+ * Class ReactivateAnInactiveSubscriptionRequest
  *
- * Reactivate an inactive subscription using subscription code as reference and apply a new charge
+ * Get subscription list of purchases
  * 
  * @package Hotmart\Api\Request\Subscription
  */
-class ReactivateAndChargeAnInactiveSubscriptionRequest extends AbstractRequest
+class ReactivateAnInactiveSubscriptionRequest extends AbstractRequest
 {
 
     private $environment;
@@ -24,7 +24,9 @@ class ReactivateAndChargeAnInactiveSubscriptionRequest extends AbstractRequest
     private $subscriptionCode;
 
     /**
-     * ReactivateAndChargeAnInactiveSubscriptionRequest constructor.
+     * ReactivateAnInactiveSubscriptionRequest constructor.
+     * 
+     * Reactivate an inactive subscription using subscription code as reference
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
@@ -41,13 +43,13 @@ class ReactivateAndChargeAnInactiveSubscriptionRequest extends AbstractRequest
     /**
      * @param ResultData<PurchaseResponseVO>
      *
-     * @return null
+     * @return SubscriptionStatusResponseVO
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
     public function execute($param = null)
     {
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/reactivateAndCharge";
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/reactivate";
 
         return $this->send($url, 'PUT');
     }

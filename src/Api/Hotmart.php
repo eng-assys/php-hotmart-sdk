@@ -194,28 +194,24 @@ class Hotmart
         return (new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($sendEmail);
     }
 
-    // Not available Yet
     public function refundPaymentOfASubscriptionRequest($subscriptionCode, $paymentReference)
     {
         return (new RefundPaymentOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode, $paymentReference))->execute();
     }
 
-    // Not available Yet
     public function exchangeBillingDayOfASubscriptionRequest($subscriptionCode, $day)
     {
         return (new ExchangeBillingDayOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($day);
     }
-
-    // Not available Yet
+    
     public function reactivateAnInactiveSubscriptionRequest($subscriptionCode)
     {
-        return (new ReactivateAnInactiveSubscriptionRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+        return (new ReactivateAnInactiveSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
-    // Not available Yet
     public function reactivateAndChargeAnInactiveSubscriptionRequest($subscriptionCode)
     {
-        return (new ReactivateAndChargeAnInactiveSubscriptionRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+        return (new ReactivateAndChargeAnInactiveSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
     // Users Endpoints
