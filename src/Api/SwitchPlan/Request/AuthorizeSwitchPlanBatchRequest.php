@@ -6,7 +6,7 @@ use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\SwitchPlan\SendInviteSwitchPlanResponse;
+use Hotmart\Api\SwitchPlan\SwitchPlanAuthorizeResponse;
 /**
  * Class AuthorizeSwitchPlanBatchRequest
  *
@@ -47,11 +47,11 @@ class AuthorizeSwitchPlanBatchRequest extends AbstractRequest
     /**
      * @param $json
      *
-     * @return SendInviteSwitchPlanResponse
+     * @return SwitchPlanAuthorizeResponse
      */
     protected function unserialize($json)
     {
-        return SendInviteSwitchPlanResponse::fromJson($json);
+        return SwitchPlanAuthorizeResponse::fromJson($json);
     }
    
 }
