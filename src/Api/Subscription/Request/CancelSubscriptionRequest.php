@@ -8,6 +8,8 @@ use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 /**
  * Class CancelSubscriptionRequest
+ * 
+ * Cancel subscription of the given code
  *
  * @package Hotmart\Api\Request\Subscription
  */

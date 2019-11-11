@@ -10,8 +10,10 @@ use Hotmart\Api\Subscription\GetSubscribersRequestQuery;
 
 use Hotmart\Request\RequestHelper;
 /**
- * Class GetSubscribersRequest
- *
+ * Class GetSubscribersRequest.
+ * 
+ * Get the subscribers
+ * 
  * @package Hotmart\Api\Request\Subscription
  */
 class GetSubscribersRequest extends AbstractRequest

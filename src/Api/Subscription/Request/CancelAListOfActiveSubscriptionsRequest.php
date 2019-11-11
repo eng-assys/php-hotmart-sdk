@@ -12,7 +12,7 @@ use Hotmart\Api\Common\SubscriptionStatusListResponseVO;
 /**
  * Class CancelAListOfActiveSubscriptionsRequest
  *
- * Get subscription list of purchases
+ * Cancel a list of active subscription using subscription code as reference
  * 
  * @package Hotmart\Api\Request\Subscription
  */
