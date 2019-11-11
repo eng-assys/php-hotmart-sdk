@@ -21,17 +21,21 @@ class GetSubscriptionPurchasesRequest extends AbstractRequest
 
     private $environment;
 
+    private $subscriptionCode;
+
     /**
      * GetSubscriptionPurchasesRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment)
+    public function __construct(Hotconnect $hotconnect, Environment $environment, $subscriptionCode)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
+
+        $this->subscriptionCode = $subscriptionCode;
     }
 
     /**
@@ -41,9 +45,9 @@ class GetSubscriptionPurchasesRequest extends AbstractRequest
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($subscriptionCode)
+    public function execute($param=null)
     {
-        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2/{$subscriptionCode}/purchases";
+        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2/{$this->subscriptionCode}/purchases";
 
         return $this->send($url, 'GET');
     }
@@ -51,11 +55,11 @@ class GetSubscriptionPurchasesRequest extends AbstractRequest
     /**
      * @param $json
      *
-     * @return ResultData<PurchaseResponseVO>
+     * @return PurchaseResponseVO
      */
     protected function unserialize($json)
     {
-        return ResultData::fromJson($json);
+        return PurchaseResponseVO::fromJson($json);
     }
    
 }

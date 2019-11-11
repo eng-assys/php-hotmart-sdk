@@ -171,7 +171,7 @@ class Hotmart
 
     public function getSubscriptionPurchasesRequest($subscriptionCode)
     {
-        return (new GetSubscriptionPurchasesRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+        return (new GetSubscriptionPurchasesRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
     // Not available Yet
