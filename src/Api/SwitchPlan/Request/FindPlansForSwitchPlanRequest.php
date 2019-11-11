@@ -8,17 +8,17 @@ use Hotmart\Api\Environment;
 
 use Hotmart\Api\Subscription\Subscription;
 /**
- * Class FindPlanForSwitchPlanRequest
+ * Class FindPlansForSwitchPlanRequest
  *
  * @package Hotmart\Api\Request\SwitchPlan
  */
-class FindPlanForSwitchPlanRequest extends AbstractRequest
+class FindPlansForSwitchPlanRequest extends AbstractRequest
 {
 
     private $environment;
 
     /**
-     * FindPlanForSwitchPlanRequest constructor.
+     * FindPlansForSwitchPlanRequest constructor.
      *
      * @param Hotconnect $hotconnect
      * @param Environment $environment
