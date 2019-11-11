@@ -195,9 +195,9 @@ class Hotmart
     }
 
     // Not available Yet
-    public function refundPaymentOfASubscriptionRequest($subscriptionCode)
+    public function refundPaymentOfASubscriptionRequest($subscriptionCode, $paymentReference)
     {
-        return (new RefundPaymentOfASubscriptionRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+        return (new RefundPaymentOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode, $paymentReference))->execute();
     }
 
     // Not available Yet
