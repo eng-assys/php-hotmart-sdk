@@ -164,9 +164,9 @@ class Hotmart
 
     // Subscriptions Endpoints
 
-    public function getSubscribers($page, $rows)
+    public function getSubscribers($getSubscribersRequestQuery)
     {
-        return (new GetSubscribersRequest($this->hotconnect, $this->environment, $page, $rows))->execute();
+        return (new GetSubscribersRequest($this->hotconnect, $this->environment))->execute($getSubscribersRequestQuery);
     }
 
     public function getSubscriptionPurchasesRequest($subscriptionCode)

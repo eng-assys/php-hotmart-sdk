@@ -5,6 +5,10 @@ namespace Hotmart\Api\Subscription\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\Subscription\GetSubscribersRequestQuery;
+
+use Hotmart\Request\RequestHelper;
 /**
  * Class GetSubscribersRequest
  *
@@ -25,27 +29,26 @@ class GetSubscribersRequest extends AbstractRequest
      * @param Hotconnect $hotconnect
      * @param Environment $environment
      */
-    public function __construct(Hotconnect $hotconnect, Environment $environment, $page, $rows)
+    public function __construct(Hotconnect $hotconnect, Environment $environment)
     {
         parent::__construct($hotconnect);
 
         $this->environment = $environment;
-
-        $this->page = $page;
-
-        $this->rows = $rows;
     }
 
     /**
-     * @param ResultData<SubscriptionResponseVO>
+     * @param GetSubscribersRequestQuery
      *
-     * @return null
+     * @return ResultData<SubscriptionResponseVO>
      * @throws \Hotmart\Request\HotmartRequestException
      * @throws \RuntimeException
      */
-    public function execute($param=null)
+    public function execute($getSubscribersRequestQuery)
     {
-        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2?page={$this->page}&rows={$this->rows}";
+
+        $query = RequestHelper::generateUrlQueryString(json_decode($getSubscribersRequestQuery, true));
+
+        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2$query";
 
         return $this->send($url, 'GET');
     }
