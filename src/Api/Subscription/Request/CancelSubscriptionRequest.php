@@ -6,6 +6,8 @@ use Hotmart\Request\AbstractRequest;
 use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+
+use Hotmart\Api\Subscription\SubscriptionStatusResponseVO;
 /**
  * Class CancelSubscriptionRequest
  * 
@@ -48,18 +50,18 @@ class CancelSubscriptionRequest extends AbstractRequest
             'sendMail' => $sendMail
         ]);
 
-        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel{$queryParams}";
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel$queryParams";
         return $this->send($url, 'PUT');
     }
 
     /**
      * @param $json
      *
-     * @return null
+     * @return SubscriptionStatusResponseVO
      */
     protected function unserialize($json)
     {
-        return null;
+        return SubscriptionStatusResponseVO::fromJson($json);
     }
    
 }
