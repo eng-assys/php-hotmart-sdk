@@ -42,11 +42,9 @@ class CancelSubscriptionRequest extends AbstractRequest
      */
     public function execute($sendMail=null)
     {
-        $queryParams = [
+        $queryParams = RequestHelper::generateUrlQueryString([
             'sendMail' => $sendMail
-        ];
-
-        $queryParams = RequestHelper::generateUrlQueryString($queryParams);
+        ]);
 
         $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/cancel{$queryParams}";
         return $this->send($url, 'PUT');
