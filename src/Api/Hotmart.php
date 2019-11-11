@@ -174,10 +174,9 @@ class Hotmart
         return (new GetSubscriptionPurchasesRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
-    // Not available Yet
-    public function cancelAListOfActiveSubscriptionsRequest($subscriptionCode)
+    public function cancelAListOfActiveSubscriptionsRequest($sendEmail, $subscriptionsArray)
     {
-        return (new CancelAListOfActiveSubscriptionsRequest($this->hotconnect, $this->environment))->execute($subscriptionCode);
+        return (new CancelAListOfActiveSubscriptionsRequest($this->hotconnect, $this->environment, $sendEmail))->execute($subscriptionsArray);
     }
 
     // Not available Yet
