@@ -109,10 +109,16 @@ abstract class AbstractRequest
                     $exception->setHotmartError($hotmartError);
                 }
                 throw $exception;
+                break;
             case 404:
                 throw new HotmartRequestException('Resource not found', 404, null);
+                break;
+            case 500:
+                throw new HotmartRequestException('Internal Server Error', 500, null);
+                break;
             default:
                 throw new HotmartRequestException(empty($responseMessage) ? 'Unknown status' : $responseMessage, $statusCode);
+                break;
         }
 
         return $unserialized;
