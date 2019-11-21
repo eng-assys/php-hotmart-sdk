@@ -2,6 +2,7 @@
 
 namespace Hotmart\Api\Product\Request;
 
+use Hotmart\Api\Common\ResultData;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\Request\RequestHelper;
 use Hotmart\HotConnect;
@@ -57,7 +58,7 @@ class GetAllProductsRequest extends AbstractRequest
     public function execute($param = null)
     {
         $queryString = RequestHelper::generateUrlQueryString($this->queryParams);
-        $url = "{$this->environment->getApiUrl()}product/rest/v2{$queryString}";
+        $url = "{$this->environment->getApiUrl()}product/rest/v2/{$queryString}";
 
         return $this->send($url, 'GET');
     }
