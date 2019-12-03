@@ -22,10 +22,6 @@ class GetSubscribersRequest extends AbstractRequest
 
     private $environment;
 
-    private $page;
-
-    private $rows;
-
     /**
      * GetSubscribersRequest constructor.
      *
