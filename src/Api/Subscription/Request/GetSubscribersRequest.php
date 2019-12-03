@@ -5,15 +5,16 @@ namespace Hotmart\Api\Subscription\Request;
 use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
+use Hotmart\Api\Common\ResultData;
 
 use Hotmart\Api\Subscription\GetSubscribersRequestQuery;
 
 use Hotmart\Request\RequestHelper;
 /**
  * Class GetSubscribersRequest.
- * 
+ *
  * Get the subscribers
- * 
+ *
  * @package Hotmart\Api\Request\Subscription
  */
 class GetSubscribersRequest extends AbstractRequest
@@ -48,7 +49,7 @@ class GetSubscribersRequest extends AbstractRequest
     public function execute($getSubscribersRequestQuery)
     {
 
-        $query = RequestHelper::generateUrlQueryString(json_decode($getSubscribersRequestQuery, true));
+        $query = RequestHelper::generateUrlQueryString($getSubscribersRequestQuery->jsonSerialize());
 
         $url = "{$this->environment->getApiUrl()}subscriber/rest/v2$query";
 
@@ -64,5 +65,5 @@ class GetSubscribersRequest extends AbstractRequest
     {
         return ResultData::fromJson($json);
     }
-   
+
 }
