@@ -13,7 +13,7 @@ use Hotmart\Api\Subscription\SubscriptionPurchaseResponseVO;
  * Class GetSubscriptionPurchasesRequest
  *
  * Get subscription list of purchases
- * 
+ *
  * @package Hotmart\Api\Request\Subscription
  */
 class GetSubscriptionPurchasesRequest extends AbstractRequest
@@ -60,8 +60,8 @@ class GetSubscriptionPurchasesRequest extends AbstractRequest
     protected function unserialize($json)
     {
         return array_map(function ($purchase) {
-            return SubscriptionPurchaseResponseVO::fromJson($purchase);
-        }, $json);
+            return SubscriptionPurchaseResponseVO::fromJson(json_encode($purchase));
+        }, json_decode($json->getContents(), true));
     }
-   
+
 }
