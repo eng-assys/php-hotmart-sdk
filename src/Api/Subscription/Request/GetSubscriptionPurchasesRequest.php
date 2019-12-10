@@ -47,7 +47,7 @@ class GetSubscriptionPurchasesRequest extends AbstractRequest
      */
     public function execute($param=null)
     {
-        $url = "{$this->environment->getApiUrl()}subscriber/rest/v2/{$this->subscriptionCode}/purchases";
+        $url = "{$this->environment->getApiUrl()}subscription/rest/v2/{$this->subscriptionCode}/purchases";
 
         return $this->send($url, 'GET');
     }
