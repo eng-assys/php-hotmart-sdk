@@ -6,7 +6,7 @@ use Hotmart\Request\AbstractRequest;
 use Hotmart\HotConnect;
 use Hotmart\Api\Environment;
 
-use Hotmart\Api\Common\PurchaseResponseVO;
+use Hotmart\Api\Subscription\SubscriptionPurchaseResponseVO;
 
 
 /**
@@ -55,11 +55,13 @@ class GetSubscriptionPurchasesRequest extends AbstractRequest
     /**
      * @param $json
      *
-     * @return PurchaseResponseVO
+     * @return array(SubscriptionPurchaseResponseVO)
      */
     protected function unserialize($json)
     {
-        return PurchaseResponseVO::fromJson($json);
+        return array_map(function ($purchase) {
+            return SubscriptionPurchaseResponseVO::fromJson($purchase);
+        }, $json);
     }
    
 }
