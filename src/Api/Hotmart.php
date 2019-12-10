@@ -169,22 +169,22 @@ class Hotmart
         return (new GetSubscribersRequest($this->hotconnect, $this->environment))->execute($getSubscribersRequestQuery);
     }
 
-    public function getSubscriptionPurchasesRequest($subscriptionCode)
+    public function getSubscriptionPurchases($subscriptionCode)
     {
         return (new GetSubscriptionPurchasesRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
-    public function cancelAListOfActiveSubscriptionsRequest($sendEmail, $subscriptionsArray)
+    public function cancelAListOfActiveSubscriptions($sendEmail, $subscriptionsArray)
     {
         return (new CancelAListOfActiveSubscriptionsRequest($this->hotconnect, $this->environment, $sendEmail))->execute($subscriptionsArray);
     }
 
-    public function reactivateAListOfInactiveSubscriptionsRequest($subscriptionsArray)
+    public function reactivateAListOfInactiveSubscriptions($subscriptionsArray)
     {
         return (new ReactivateAListOfInactiveSubscriptionsRequest($this->hotconnect, $this->environment))->execute($subscriptionsArray);
     }
 
-    public function reactivateAndChargeAListOfInactiveSubscriptionsRequest($subscriptionsArray)
+    public function reactivateAndChargeAListOfInactiveSubscriptions($subscriptionsArray)
     {
         return (new ReactivateAndChargeAListOfInactiveSubscriptionsRequest($this->hotconnect, $this->environment))->execute($subscriptionsArray);
     }
@@ -194,22 +194,22 @@ class Hotmart
         return (new CancelSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($sendEmail);
     }
 
-    public function refundPaymentOfASubscriptionRequest($subscriptionCode, $paymentReference)
+    public function refundPaymentOfASubscription($subscriptionCode, $paymentReference)
     {
         return (new RefundPaymentOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode, $paymentReference))->execute();
     }
 
-    public function exchangeBillingDayOfASubscriptionRequest($subscriptionCode, $day)
+    public function exchangeBillingDayOfASubscription($subscriptionCode, $day)
     {
         return (new ExchangeBillingDayOfASubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute($day);
     }
     
-    public function reactivateAnInactiveSubscriptionRequest($subscriptionCode)
+    public function reactivateAnInactiveSubscription($subscriptionCode)
     {
         return (new ReactivateAnInactiveSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
 
-    public function reactivateAndChargeAnInactiveSubscriptionRequest($subscriptionCode)
+    public function reactivateAndChargeAnInactiveSubscription($subscriptionCode)
     {
         return (new ReactivateAndChargeAnInactiveSubscriptionRequest($this->hotconnect, $this->environment, $subscriptionCode))->execute();
     }
@@ -243,12 +243,12 @@ class Hotmart
         return (new SendInviteForSwitchPlanRequest($this->hotconnect, $this->environment))->execute($sendInviteSwitchPlanRequest);
     }
 
-    public function authorizeSwitchPlanBatchRequest($switchPlanAuthoriseRequest)
+    public function authorizeSwitchPlanBatch($switchPlanAuthoriseRequest)
     {
         return (new AuthorizeSwitchPlanBatchRequest($this->hotconnect, $this->environment))->execute($switchPlanAuthoriseRequest);
     }
 
-    public function authorizeSwitchPlanRequest($switchPlanAuthoriseRequest)
+    public function authorizeSwitchPlan($switchPlanAuthoriseRequest)
     {
         return (new authorizeSwitchPlanRequest($this->hotconnect, $this->environment))->execute($switchPlanAuthoriseRequest);
     }
